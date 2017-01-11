@@ -23,4 +23,12 @@
 
     <include layout="@layout/content_main" />
 
+    <ImageView
+        android:layout_width="118dp"
+        android:layout_height="142dp"
+        app:srcCompat="@drawable/skmotion"
+        android:id="@+id/imageView2"
+        app:layout_anchorGravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_vertical|center_horizontal" />
+
 </android.support.design.widget.CoordinatorLayout>
