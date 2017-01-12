@@ -18,4 +18,8 @@ public class Event {
     private double measureTime(double startTime, double endTime) {
         return endTime - startTime;
     }
+
+    public String toString() {
+        return this.name;
+    }
 }

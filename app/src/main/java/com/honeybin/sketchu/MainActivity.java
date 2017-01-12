@@ -1,5 +1,6 @@
 package com.honeybin.sketchu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,17 +9,32 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button eventButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        eventButton = (Button) findViewById(R.id.eventButton);
+
+        eventButton.setOnClickListener(new Button.OnClickListener() {
+          @Override
+            public void onClick(View view) {
+              Intent i = new Intent(getApplicationContext(), EventListActivity.class);
+              startActivity(i);
+          }
+        });
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
