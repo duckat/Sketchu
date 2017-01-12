@@ -5,24 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.honeybin.sketchu.MainActivity">
+    tools:context="com.honeybin.sketchu.MainActivity"
+    tools:background="@drawable/sketchuroom"
+    android:background="@drawable/sketchuroom">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_main"
-        android:id="@+id/include" />
 
     <ImageView
         android:layout_width="118dp"
@@ -40,5 +32,38 @@
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="bottom|right"
         android:layout_gravity="top|left" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:weightSum="1"
+        >
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar5"
+            android:layout_weight="0.27" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar6"
+            android:layout_weight="0.27" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar7"
+            android:layout_weight="0.27" />
+    </LinearLayout>
+
+    <include layout="@layout/content_main"
+        android:id="@+id/include"
+        android:layout_height="405dp" />
 
 </android.support.design.widget.CoordinatorLayout>

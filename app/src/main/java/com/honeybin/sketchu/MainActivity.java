@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
           }
         });
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
     }
 
