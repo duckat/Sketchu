@@ -19,8 +19,8 @@
     <ImageView
         android:layout_width="118dp"
         android:layout_height="142dp"
-        app:srcCompat="@drawable/skmotion"
-        android:id="@+id/imageView2"
+        android:background="@drawable/animation_sketchu"
+        android:id="@+id/sketchuPic"
         app:layout_anchorGravity="center_vertical|center_horizontal"
         android:layout_gravity="center_vertical|center_horizontal" />
 

@@ -1,6 +1,8 @@
 package com.honeybin.sketchu;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +12,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,14 +28,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuPic);
+        ((AnimationDrawable) sketchuMotion.getBackground()).start();
+
         eventButton = (Button) findViewById(R.id.eventButton);
 
         eventButton.setOnClickListener(new Button.OnClickListener() {
-          @Override
+            @Override
             public void onClick(View view) {
-              Intent i = new Intent(getApplicationContext(), EventListActivity.class);
-              startActivity(i);
-          }
+                Intent i = new Intent(getApplicationContext(), EventListActivity.class);
+                startActivity(i);
+            }
         });
 
 
@@ -54,5 +65,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
     }
 }
