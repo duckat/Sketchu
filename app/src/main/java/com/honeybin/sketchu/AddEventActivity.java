@@ -1,6 +1,7 @@
 package com.honeybin.sketchu;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -83,7 +84,8 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
             String detail = txtDetail.getText().toString();
 
             EventListActivity.eventList.add(new Event(name, startHour, startMinute, endHour, endMinute, detail));
-            finish();
+            Intent i = new Intent(getApplicationContext(), EventListActivity.class);
+            startActivity(i);
         }
     }
 }
