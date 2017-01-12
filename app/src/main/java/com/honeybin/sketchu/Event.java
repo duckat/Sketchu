@@ -9,14 +9,16 @@ public class Event {
     private double durationMin;
     private String explanation;
 
-    public Event(String name, double startTime, double endTime, String exp) {
+    public Event(String name, int startHour, int startMinute, int endHour, int endMinute, String exp) {
         this.name = name;
-        this.durationMin = measureTime(startTime, endTime);
+        this.durationMin = measureTime(startHour, startMinute, endHour, endMinute);
         this.explanation = exp;
     }
 
-    private double measureTime(double startTime, double endTime) {
-        return endTime - startTime;
+    private double measureTime(int sh, int sm, int eh, int em) {
+        int hour = eh - sh;
+        int minute = em - sm;
+        return hour + (minute / 60.0);
     }
 
     public String toString() {

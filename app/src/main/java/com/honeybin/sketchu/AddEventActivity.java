@@ -12,9 +12,11 @@ import java.util.Calendar;
 
 public class AddEventActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btnStartTimePicker, btnEndTimePicker;
+    private Button btnStartTimePicker, btnEndTimePicker, addButton;
+    private int startHour, startMinute;
+    private int endHour, endMinute;
     private int mHour, mMinute;
-    private EditText txtStart, txtEnd;
+    private EditText txtStart, txtEnd, txtName, txtDetail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +24,17 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 
         btnStartTimePicker = (Button) findViewById(R.id.setStartTimeButton);
         btnEndTimePicker = (Button) findViewById(R.id.setEndTimeButton);
+        addButton = (Button) findViewById(R.id.addDecideButton);
+
+
+        txtName = (EditText)findViewById(R.id.nameTxt);
+        txtDetail = (EditText) findViewById(R.id.detailTxt);
         txtStart=(EditText)findViewById(R.id.startTimeText);
         txtEnd=(EditText)findViewById(R.id.endTimeText);
 
         btnStartTimePicker.setOnClickListener(this);
         btnEndTimePicker.setOnClickListener(this);
+        addButton.setOnClickListener(this);
 
     }
 
@@ -35,8 +43,8 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         if(v == btnStartTimePicker) {
             // Get Current Time
             final Calendar c = Calendar.getInstance();
-            mHour = c.get(Calendar.HOUR_OF_DAY);
-            mMinute = c.get(Calendar.MINUTE);
+            startHour = c.get(Calendar.HOUR_OF_DAY);
+            startMinute = c.get(Calendar.MINUTE);
 
             // Launch Time Picker Dialog
             TimePickerDialog timePickerDialog = new TimePickerDialog(this,
@@ -48,14 +56,14 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 
                             txtStart.setText(hourOfDay + ":" + minute);
                         }
-                    }, mHour, mMinute, false);
+                    }, startHour, startMinute, false);
             timePickerDialog.show();
         }
 
         if(v == btnEndTimePicker) {
             final Calendar c = Calendar.getInstance();
-            mHour = c.get(Calendar.HOUR_OF_DAY);
-            mMinute = c.get(Calendar.MINUTE);
+            endHour = c.get(Calendar.HOUR_OF_DAY);
+            endMinute = c.get(Calendar.MINUTE);
 
             // Launch Time Picker Dialog
             TimePickerDialog timePickerDialog = new TimePickerDialog(this,
@@ -67,8 +75,15 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 
                             txtEnd.setText(hourOfDay + ":" + minute);
                         }
-                    }, mHour, mMinute, false);
+                    }, endHour, endMinute, false);
             timePickerDialog.show();
+        }
+        if(v == addButton) {
+            String name = txtName.getText().toString();
+            String detail = txtDetail.getText().toString();
+
+            EventListActivity.eventList.add(new Event(name, startHour, startMinute, endHour, endMinute, detail));
+            finish();
         }
     }
 }

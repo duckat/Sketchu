@@ -16,7 +16,7 @@ public class EventListActivity extends AppCompatActivity {
 
     private ListView eventListView;
     private ArrayAdapter<Event> eventListAdapter;
-    private ArrayList<Event> eventList = new ArrayList<Event>();
+    public static ArrayList<Event> eventList = new ArrayList<Event>();
     private Button addButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class EventListActivity extends AppCompatActivity {
 
 
         for(int i = 0; i < 30; i++) {
-            Event e = new Event("hello", 1.0, 1.0, "This is hello event");
+            Event e = new Event("hello", 1, 1, 1, 1, "This is hello event");
             eventList.add(e);
         }
 
@@ -43,4 +43,5 @@ public class EventListActivity extends AppCompatActivity {
         eventListAdapter = new ArrayAdapter<Event>(this, android.R.layout.simple_list_item_1, eventList);
         eventListView.setAdapter(eventListAdapter);
     }
+
 }
