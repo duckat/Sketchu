@@ -3,7 +3,7 @@ package com.honeybin.sketchu;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class EventActivity extends AppCompatActivity {
+public class AddEventActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
