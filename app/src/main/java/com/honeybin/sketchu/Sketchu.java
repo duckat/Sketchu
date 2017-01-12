@@ -24,10 +24,12 @@ public class Sketchu {
     // social category
     private int sociability = 0;
     private int friendliness = 0;
+    private int expressiveness = 0;
 
     // mind control
     private int confidence = 0;
     private int concentration = 0;
+    private int sentimentality = 0;
 
     // personality
     private int shoppingImpulsiveness = 0;
@@ -36,5 +38,82 @@ public class Sketchu {
     public Sketchu() {
 
     }
-    
+
+    public void incHunger() {
+
+    }
+
+    public void incCleanliness() {
+
+    }
+
+    public void incLove() {
+
+    }
+
+    public void incDrowsiness() {
+
+    }
+
+    public void incKnowledge() {
+
+    }
+
+    public void incCreativity() {
+
+    }
+
+    public void incComprehensibility() {
+
+    }
+
+    public void incMusicalAbility() {
+
+    }
+
+    public void incAppearance() {
+
+    }
+
+    public void incPhysicality() {
+
+    }
+    public void incFitness() {
+
+    }
+
+    public void incSociability() {
+
+    }
+
+    public void incFriendliness() {
+
+    }
+
+    public void incExpressiveness() {
+
+    }
+
+    public void incConfidence() {
+
+    }
+
+    public void incConcentration() {
+
+    }
+
+    public void incSentimentality() {
+
+
+    }
+
+    public void incShoppingImpulsiveness() {
+
+    }
+
+    public void incOtakuness() {
+
+    }
+
+
 }
