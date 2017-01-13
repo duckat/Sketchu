@@ -7,24 +7,36 @@ package com.honeybin.sketchu;
 public class Event {
     private String name;
     private int durationMin;
-    private String explanation;
+    private String detail;
 
     public Event(String name, int startHour, int startMinute, int endHour, int endMinute, String exp) {
         this.name = name;
         this.durationMin = measureTime(startHour, startMinute, endHour, endMinute);
-        this.explanation = exp;
+        this.detail = exp;
     }
 
     public Event(String name, int durationMin, String detail) {
         this.name = name;
         this.durationMin = durationMin;
-        this.explanation = detail;
+        this.detail = detail;
     }
 
     private int measureTime(int sh, int sm, int eh, int em) {
         int startTime = sh * 60 + sm;
         int endTime = eh * 60 + em;
         return endTime - startTime;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getDurationMin() {
+        return this.durationMin;
+    }
+
+    public String getDetail() {
+        return this.detail;
     }
 
     public String toString() {
