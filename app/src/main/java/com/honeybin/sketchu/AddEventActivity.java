@@ -17,11 +17,13 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
     private int startHour, startMinute;
     private int endHour, endMinute;
     private int mHour, mMinute;
+    private EventsDBHelper dbHelper;
     private EditText txtStart, txtEnd, txtName, txtDetail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
+        dbHelper = new EventsDBHelper(this);
 
         btnStartTimePicker = (Button) findViewById(R.id.setStartTimeButton);
         btnEndTimePicker = (Button) findViewById(R.id.setEndTimeButton);
@@ -83,7 +85,9 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
             String name = txtName.getText().toString();
             String detail = txtDetail.getText().toString();
 
-            EventListActivity.eventList.add(new Event(name, startHour, startMinute, endHour, endMinute, detail));
+
+            dbHelper.insertEvent(name, 0, detail);
+            //EventListActivity.eventList.add(new Event(name, startHour, startMinute, endHour, endMinute, detail));
             Intent i = new Intent(getApplicationContext(), EventListActivity.class);
             startActivity(i);
         }

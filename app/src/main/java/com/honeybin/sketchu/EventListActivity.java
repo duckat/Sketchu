@@ -19,6 +19,7 @@ public class EventListActivity extends AppCompatActivity {
 
     private ListView eventListView;
     private ArrayAdapter<Event> eventListAdapter;
+    private EventsDBHelper eventsdb;
     public static ArrayList<Event> eventList = new ArrayList<Event>();
     private Button addButton;
     @Override
@@ -28,12 +29,8 @@ public class EventListActivity extends AppCompatActivity {
 
         eventListView = (ListView) findViewById(R.id.eventListView);
 
-
-        for(int i = 0; i < 30; i++) {
-            Event e = new Event("hello", 1, 1, 1, 1, "This is hello event");
-            eventList.add(e);
-        }
-
+        eventsdb = new EventsDBHelper(this);
+        eventList  = eventsdb.getAllEvents();
         addButton = (Button) findViewById(addEventButton);
         addButton.setOnClickListener(new Button.OnClickListener() {
             @Override
