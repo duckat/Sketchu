@@ -11,6 +11,7 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 
+//AddEventsActivity
 public class AddEventActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button btnStartTimePicker, btnEndTimePicker, addButton;
