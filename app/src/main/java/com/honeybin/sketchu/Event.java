@@ -6,7 +6,7 @@ package com.honeybin.sketchu;
 
 public class Event {
     private String name;
-    private double durationMin;
+    private int durationMin;
     private String explanation;
 
     public Event(String name, int startHour, int startMinute, int endHour, int endMinute, String exp) {
@@ -15,10 +15,10 @@ public class Event {
         this.explanation = exp;
     }
 
-    private double measureTime(int sh, int sm, int eh, int em) {
+    private int measureTime(int sh, int sm, int eh, int em) {
         int hour = eh - sh;
         int minute = em - sm;
-        return hour + (minute / 60.0);
+        return hour + (minute / 60);
     }
 
     public String toString() {
