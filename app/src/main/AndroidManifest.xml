@@ -28,7 +28,11 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".EventViewActivity"></activity>
+        <activity android:name=".EventViewActivity" />
+        <activity
+            android:name=".EventDetailActivity"
+            android:label="@string/title_activity_event_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

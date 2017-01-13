@@ -22,9 +22,9 @@ public class Event {
     }
 
     private int measureTime(int sh, int sm, int eh, int em) {
-        int hour = eh - sh;
-        int minute = em - sm;
-        return hour + (minute / 60);
+        int startTime = sh * 60 + sm;
+        int endTime = eh * 60 + em;
+        return endTime - startTime;
     }
 
     public String toString() {
