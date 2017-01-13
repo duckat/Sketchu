@@ -48,10 +48,14 @@ public class EventsDBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor getData(int id) {
+    public Event getData(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery( "select * from events where id="+id+"", null);
-        return res;
+        String name = res.getString(res.getColumnIndex(EVENTS_COLUMN_NAME));
+        int durationMin = res.getInt(res.getColumnIndex(EVENTS_COLUMN_DURATION_MIN));
+        String detail = res.getString(res.getColumnIndex(EVENTS_COLUMN_DETAIL));
+        Event e = new Event(name, durationMin, detail);
+        return e;
     }
 
     public int numberOfRows() {
