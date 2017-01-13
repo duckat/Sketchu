@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+//Events Database
 public class EventsDBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "MyEvents.db";
     public static final String EVENTS_TABLE_NAME = "events";
