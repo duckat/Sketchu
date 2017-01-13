@@ -48,11 +48,15 @@ public class EventListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
 
-                String item = ((TextView)view).getText().toString();
-
-                Toast.makeText(getBaseContext(), item, Toast.LENGTH_LONG).show();
+//                String item = ((TextView)view).getText().toString();
+//
+//                Toast.makeText(getBaseContext(), item, Toast.LENGTH_SHORT).show();
 
                 Intent i = new Intent(getApplicationContext(), EventDetailActivity.class);
+                Event e = eventList.get(position);
+                i.putExtra("name", e.getName());
+                i.putExtra("duration", e.getDurationMin());
+                i.putExtra("detail", e.getDetail());
                 startActivity(i);
             }
         });
