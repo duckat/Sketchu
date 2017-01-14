@@ -1,6 +1,7 @@
 package com.honeybin.sketchu;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import static com.honeybin.sketchu.R.id.addEventButton;
+import static com.honeybin.sketchu.R.id.eventListView;
 
 public class EventListActivity extends AppCompatActivity {
 
@@ -54,10 +56,15 @@ public class EventListActivity extends AppCompatActivity {
 
                 Intent i = new Intent(getApplicationContext(), EventDetailActivity.class);
                 Event e = eventList.get(position);
+//                int adapterPosition = position - eventListView.getHeaderViewsCount();
+//                Cursor cursor = (Cursor) eventListAdapter.getItem(adapterPosition);
+//                int ID = cursor.getInt(cursor.getColumnIndex(("_id")));
+
                 i.putExtra("name", e.getName());
-                i.putExtra("duration", e.getDurationMin());
+                i.putExtra("startTime", e.getStartTime());
+                i.putExtra("endTime", e.getEndTime());
                 i.putExtra("detail", e.getDetail());
-                i.putExtra("id", position);
+                i.putExtra("id", id);
                 startActivity(i);
             }
         });

@@ -17,25 +17,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Event Name"
+        android:text="End Time"
         android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:id="@+id/editText"
-        style="@android:style/Widget.AutoCompleteTextView" />
+        android:layout_marginTop="37dp"
+        android:id="@+id/endText"
+        android:layout_below="@+id/startText"
+        android:layout_alignLeft="@+id/startText"
+        android:layout_alignStart="@+id/startText" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Duration in mins"
+        android:text="Start Time"
         android:ems="10"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:layout_marginTop="39dp"
-        android:id="@+id/editText2" />
+        android:layout_marginTop="36dp"
+        android:id="@+id/startText"
+        style="@android:style/Widget.AutoCompleteTextView"
+        android:layout_below="@+id/editText4"
+        android:layout_alignLeft="@+id/editText4"
+        android:layout_alignStart="@+id/editText4" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Event Name"
+        android:ems="10"
+        android:layout_marginTop="19dp"
+        android:id="@+id/editText4"
+        style="@android:style/Widget.AutoCompleteTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -43,10 +56,10 @@
         android:inputType="textPersonName"
         android:text="Event detail"
         android:ems="10"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="32dp"
         android:id="@+id/editText3"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_below="@+id/endText"
+        android:layout_alignLeft="@+id/endText"
+        android:layout_alignStart="@+id/endText" />
 
 </RelativeLayout>

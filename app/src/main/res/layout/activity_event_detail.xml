@@ -21,8 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_event_detail" />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="84dp"
@@ -33,5 +31,7 @@
         app:rippleColor="@android:color/holo_blue_light"
         app:backgroundTint="@android:color/holo_blue_bright"
         app:elevation="7dp" />
+
+    <include layout="@layout/content_event_detail" />
 
 </android.support.design.widget.CoordinatorLayout>

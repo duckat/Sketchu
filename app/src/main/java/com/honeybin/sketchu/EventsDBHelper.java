@@ -16,7 +16,9 @@ public class EventsDBHelper extends SQLiteOpenHelper {
     public static final String EVENTS_TABLE_NAME = "events";
     public static final String EVENTS_COLUMN_ID = "id";
     public static final String EVENTS_COLUMN_NAME = "name";
-    public static final String EVENTS_COLUMN_DURATION_MIN = "duration_min";
+    public static final String EVENTS_COLUMN_START_TIME = "start_time";
+    public static final String EVENTS_COLUMN_END_TIME = "end_time";
+    //public static final String EVENTS_COLUMN_DURATION_MIN = "duration_min";
     public static final String EVENTS_COLUMN_DETAIL = "detail";
     private HashMap hp;
 
@@ -28,7 +30,7 @@ public class EventsDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(
           "create table events " +
-                  "(id integer primary key, name text, duration_min INTEGER, detail text)"
+                  "(id integer primary key, name text, start_time text, end_time text, detail text)"
         );
     }
 
@@ -38,26 +40,33 @@ public class EventsDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertEvent (String name, int durationMin, String detail) {
+    public boolean insertEvent (String name, String startTime, String endTime, String detail) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentvalues = new ContentValues();
         contentvalues.put("name", name);
-        contentvalues.put("duration_min", durationMin);
+        contentvalues.put("start_time", startTime);
+        contentvalues.put("end_time", endTime);
         contentvalues.put("detail", detail);
         db.insert("events", null, contentvalues);
         return true;
     }
 
-    public Event getData(int id) {
+/*
+    public Event editData(int id, String name, int durationMin, String detail) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery( "select * from events where id="+id+"", null);
-        String name = res.getString(res.getColumnIndex(EVENTS_COLUMN_NAME));
-        int durationMin = res.getInt(res.getColumnIndex(EVENTS_COLUMN_DURATION_MIN));
-        String detail = res.getString(res.getColumnIndex(EVENTS_COLUMN_DETAIL));
-        Event e = new Event(name, durationMin, detail);
-        return e;
-    }
+        Cursor res = db.rawQuery("select * from events", null);
+        res.moveToFirst();
 
+        while(res.isAfterLast() == false) {
+            int row_id = res.getInt(res.getColumnIndex(EVENTS_COLUMN_ID));
+            if(row_id == id) {
+
+            }
+
+            res.moveToNext();
+        }
+    }
+*/
     public int numberOfRows() {
         SQLiteDatabase db = this.getReadableDatabase();
         int numRows = (int) DatabaseUtils.queryNumEntries(db, EVENTS_TABLE_NAME);
@@ -72,9 +81,10 @@ public class EventsDBHelper extends SQLiteOpenHelper {
 
         while(res.isAfterLast() == false) {
             String name = res.getString(res.getColumnIndex(EVENTS_COLUMN_NAME));
-            int durationMin = res.getInt(res.getColumnIndex(EVENTS_COLUMN_DURATION_MIN));
+            String startTime = res.getString(res.getColumnIndex(EVENTS_COLUMN_START_TIME));
+            String endTime = res.getString(res.getColumnIndex(EVENTS_COLUMN_END_TIME));
             String detail = res.getString(res.getColumnIndex(EVENTS_COLUMN_DETAIL));
-            Event e = new Event(name, durationMin, detail);
+            Event e = new Event(name, startTime, endTime, detail);
             events_list.add(e);
             res.moveToNext();
         }

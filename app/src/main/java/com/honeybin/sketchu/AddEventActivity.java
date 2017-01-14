@@ -87,9 +87,11 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         if(v == addButton) {
             String name = txtName.getText().toString();
             String detail = txtDetail.getText().toString();
+            String startTime = txtStart.getText().toString();
+            String endTime = txtEnd.getText().toString();
 
 
-            dbHelper.insertEvent(name, 0, detail);
+            dbHelper.insertEvent(name, startTime, endTime, detail);
             //EventListActivity.eventList.add(new Event(name, startHour, startMinute, endHour, endMinute, detail));
             Intent i = new Intent(getApplicationContext(), EventListActivity.class);
             startActivity(i);

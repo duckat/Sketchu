@@ -10,13 +10,20 @@ import java.text.SimpleDateFormat;
 public class Event {
     private String name;
     private int durationMin;
-    private SimpleDateFormat startTime, endTime;
+    private String startTime, endTime;
     private String detail;
 
     public Event(String name, int startHour, int startMinute, int endHour, int endMinute, String exp) {
         this.name = name;
         this.durationMin = measureTime(startHour, startMinute, endHour, endMinute);
         this.detail = exp;
+    }
+
+    public Event(String name, String startTime, String endTime, String detail) {
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.detail = detail;
     }
 
     public Event(String name, int durationMin, String detail) {
@@ -39,6 +46,13 @@ public class Event {
         return this.durationMin;
     }
 
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
     public String getDetail() {
         return this.detail;
     }

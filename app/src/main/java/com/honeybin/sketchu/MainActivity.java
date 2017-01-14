@@ -23,8 +23,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 public class MainActivity extends AppCompatActivity {
 
     private Button eventButton;
+    /*
     private Sketchu mySketchu;
     private SharedPreferences sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+/*
     private void loadSketchu() {
         sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
 
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         mySketchu = new Sketchu();
 
     }
-
+*/
     @Override
     public void onStart() {
         super.onStart();
