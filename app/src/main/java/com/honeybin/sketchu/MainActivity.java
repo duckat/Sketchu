@@ -1,6 +1,7 @@
 package com.honeybin.sketchu;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,11 +23,14 @@ import com.google.android.gms.common.api.GoogleApiClient;
 public class MainActivity extends AppCompatActivity {
 
     private Button eventButton;
+    private Sketchu mySketchu;
+    private SharedPreferences sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuPic);
         ((AnimationDrawable) sketchuMotion.getBackground()).start();
@@ -65,6 +69,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void loadSketchu() {
+        sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
+
+        sketchuData.getInt("hunger", 0);
+        sketchuData.getInt("cleanliness", 0);
+        sketchuData.getInt("drowsiness", 0);
+        sketchuData.getInt("knowledge", 0);
+        sketchuData.getInt("", 0);
+        sketchuData.getInt("", 0);
+        sketchuData.getInt("", 0);
+        sketchuData.getInt("", 0);
+        sketchuData.getInt("", 0);
+        sketchuData.getInt("", 0);
+        sketchuData.getInt("", 0);
+        sketchuData.getInt("", 0);
+        sketchuData.getInt("", 0);
+        mySketchu = new Sketchu();
+
     }
 
     @Override
