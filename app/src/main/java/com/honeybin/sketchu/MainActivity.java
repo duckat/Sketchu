@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -23,8 +24,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 public class MainActivity extends AppCompatActivity {
 
     private Button eventButton;
-    /*
+
     private Sketchu mySketchu;
+
+    /*
     private SharedPreferences sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
     */
 
@@ -46,7 +49,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        createSketchu();
 
+        ProgressBar hungerBar = (ProgressBar) findViewById(R.id.progressBar1);
+        ProgressBar cleanlinessBar = (ProgressBar) findViewById(R.id.progressBar2);
+        ProgressBar loveBar = (ProgressBar) findViewById(R.id.progressBar3);
+        ProgressBar drowsinessBar = (ProgressBar) findViewById(R.id.progressBar4);
+
+        hungerBar.setProgress(mySketchu.getHunger());
+        cleanlinessBar.setProgress(mySketchu.getCleanliness());
+        loveBar.setProgress(mySketchu.getLove());
+        drowsinessBar.setProgress(mySketchu.getDrowsiness());
 
     }
 
@@ -71,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    private void createSketchu(){
+        mySketchu = new Sketchu();
     }
 /*
     private void loadSketchu() {

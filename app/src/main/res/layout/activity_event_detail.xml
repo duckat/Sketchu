@@ -25,12 +25,13 @@
         android:id="@+id/fab"
         android:layout_width="84dp"
         android:layout_height="89dp"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="bottom|right"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_menu_edit"
         app:rippleColor="@android:color/holo_blue_light"
         app:backgroundTint="@android:color/holo_blue_bright"
-        app:elevation="7dp" />
+        app:elevation="7dp"
+        app:layout_anchorGravity="bottom|center_horizontal" />
 
     <include layout="@layout/content_event_detail" />
 

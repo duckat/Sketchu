@@ -7,10 +7,11 @@ package com.honeybin.sketchu;
 public class Sketchu {
     private String form = "";
 
-    private int hunger = 0;
-    private int cleanliness = 0;
-    private int love = 0;
-    private int drowsiness = 0;
+    ///essential stats
+    private int hunger = 50;
+    private int cleanliness = 50;
+    private int love = 50;
+    private int drowsiness = 50;
 
     // intelligence category
     private double knowledge = 0.0;
@@ -40,7 +41,7 @@ public class Sketchu {
     public Sketchu() {
 
     }
-    private double timeConversion(double minutes) {
+    private double minToHour(double minutes) {
         double timeScore = minutes / 60.0;
         return timeScore;
     }
@@ -58,62 +59,222 @@ public class Sketchu {
     }
 
     public void incKnowledge(double time) {
-        this.knowledge = this.knowledge + this.timeConversion(time);
+        this.knowledge = this.knowledge + this.minToHour(time);
     }
 
     public void incCreativity(double time) {
-        this.creativity = this.creativity + this.timeConversion(time);
+        this.creativity = this.creativity + this.minToHour(time);
     }
 
     public void incComprehensibility(double time) {
-        this.comprehensibility = this.comprehensibility + this.timeConversion(time);
+        this.comprehensibility = this.comprehensibility + this.minToHour(time);
     }
 
     public void incMusicalAbility(double time) {
-        this.musicalAbility = this.musicalAbility + this.timeConversion(time);
+        this.musicalAbility = this.musicalAbility + this.minToHour(time);
 
     }
 
     public void incAppearance(double time) {
-        this.appearance = this.appearance + this.timeConversion(time);
+        this.appearance = this.appearance + this.minToHour(time);
     }
 
     public void incPhysicality(double time) {
-        this.physicality = this.physicality + this.timeConversion(time);
+        this.physicality = this.physicality + this.minToHour(time);
     }
     public void incFitness(double time) {
-        this.fitness = this.fitness + this.timeConversion(time);
+        this.fitness = this.fitness + this.minToHour(time);
     }
 
     public void incSociability(double time) {
-        this.sociability = this.sociability + this.timeConversion(time);
+        this.sociability = this.sociability + this.minToHour(time);
     }
 
     public void incFriendliness(double time) {
-        this.friendliness = this.friendliness + this.timeConversion(time);
+        this.friendliness = this.friendliness + this.minToHour(time);
     }
 
     public void incExpressiveness(double time) {
-        this.expressiveness = this.expressiveness + this.timeConversion(time);
+        this.expressiveness = this.expressiveness + this.minToHour(time);
     }
 
     public void incConfidence(double time) {
-        this.confidence = this.confidence + this.timeConversion(time);
+        this.confidence = this.confidence + this.minToHour(time);
     }
 
     public void incConcentration(double time) {
-        this.concentration = this.concentration + this.timeConversion(time);
+        this.concentration = this.concentration + this.minToHour(time);
     }
 
     public void incSentimentality(double time) {
-        this.sentimentality = this.sentimentality + this.timeConversion(time);
+        this.sentimentality = this.sentimentality + this.minToHour(time);
     }
 
     public void incShoppingImpulsiveness(double time) {
-        this.shoppingImpulsiveness = this.shoppingImpulsiveness + this.timeConversion(time);
+        this.shoppingImpulsiveness = this.shoppingImpulsiveness + this.minToHour(time);
     }
 
     public void incOtakuness(double time) {
-        this.otakuness = this.otakuness + this.timeConversion(time);
+        this.otakuness = this.otakuness + this.minToHour(time);
+    }
+
+    public String getForm() {
+        return form;
+    }
+
+    public void setForm(String form) {
+        this.form = form;
+    }
+
+    public int getHunger() {
+        return hunger;
+    }
+
+    public void setHunger(int hunger) {
+        this.hunger = hunger;
+    }
+
+    public int getCleanliness() {
+        return cleanliness;
+    }
+
+    public void setCleanliness(int cleanliness) {
+        this.cleanliness = cleanliness;
+    }
+
+    public int getLove() {
+        return love;
+    }
+
+    public void setLove(int love) {
+        this.love = love;
+    }
+
+    public int getDrowsiness() {
+        return drowsiness;
+    }
+
+    public void setDrowsiness(int drowsiness) {
+        this.drowsiness = drowsiness;
+    }
+
+    public double getKnowledge() {
+        return knowledge;
+    }
+
+    public void setKnowledge(double knowledge) {
+        this.knowledge = knowledge;
+    }
+
+    public double getCreativity() {
+        return creativity;
+    }
+
+    public void setCreativity(double creativity) {
+        this.creativity = creativity;
+    }
+
+    public double getComprehensibility() {
+        return comprehensibility;
+    }
+
+    public void setComprehensibility(double comprehensibility) {
+        this.comprehensibility = comprehensibility;
+    }
+
+    public double getMusicalAbility() {
+        return musicalAbility;
+    }
+
+    public void setMusicalAbility(double musicalAbility) {
+        this.musicalAbility = musicalAbility;
+    }
+
+    public double getAppearance() {
+        return appearance;
+    }
+
+    public void setAppearance(double appearance) {
+        this.appearance = appearance;
+    }
+
+    public double getPhysicality() {
+        return physicality;
+    }
+
+    public void setPhysicality(double physicality) {
+        this.physicality = physicality;
+    }
+
+    public double getFitness() {
+        return fitness;
+    }
+
+    public void setFitness(double fitness) {
+        this.fitness = fitness;
+    }
+
+    public double getSociability() {
+        return sociability;
+    }
+
+    public void setSociability(double sociability) {
+        this.sociability = sociability;
+    }
+
+    public double getFriendliness() {
+        return friendliness;
+    }
+
+    public void setFriendliness(double friendliness) {
+        this.friendliness = friendliness;
+    }
+
+    public double getExpressiveness() {
+        return expressiveness;
+    }
+
+    public void setExpressiveness(double expressiveness) {
+        this.expressiveness = expressiveness;
+    }
+
+    public double getConfidence() {
+        return confidence;
+    }
+
+    public void setConfidence(double confidence) {
+        this.confidence = confidence;
+    }
+
+    public double getConcentration() {
+        return concentration;
+    }
+
+    public void setConcentration(double concentration) {
+        this.concentration = concentration;
+    }
+
+    public double getSentimentality() {
+        return sentimentality;
+    }
+
+    public void setSentimentality(double sentimentality) {
+        this.sentimentality = sentimentality;
+    }
+
+    public double getShoppingImpulsiveness() {
+        return shoppingImpulsiveness;
+    }
+
+    public void setShoppingImpulsiveness(double shoppingImpulsiveness) {
+        this.shoppingImpulsiveness = shoppingImpulsiveness;
+    }
+
+    public double getOtakuness() {
+        return otakuness;
+    }
+
+    public void setOtakuness(double otakuness) {
+        this.otakuness = otakuness;
     }
 }

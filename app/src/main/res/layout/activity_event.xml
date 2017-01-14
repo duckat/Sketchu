@@ -95,18 +95,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/startTimeText"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_alignLeft="@+id/endTimeText"
-        android:layout_alignStart="@+id/endTimeText" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/nameTxt"
         android:layout_marginRight="21dp"
@@ -128,5 +116,17 @@
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/endTimeText"
         android:layout_alignStart="@+id/endTimeText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/startTimeText"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignLeft="@+id/nameTxt"
+        android:layout_alignStart="@+id/nameTxt" />
 
 </RelativeLayout>

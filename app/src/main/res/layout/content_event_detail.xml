@@ -62,4 +62,12 @@
         android:layout_alignLeft="@+id/endText"
         android:layout_alignStart="@+id/endText" />
 
+    <Button
+        android:text="remove event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

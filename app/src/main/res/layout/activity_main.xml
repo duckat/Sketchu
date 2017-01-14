@@ -35,37 +35,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginRight="20dp" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:weightSum="1"
-        >
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressBar5"
-            android:layout_weight="0.27" />
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressBar6"
-            android:layout_weight="0.27" />
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressBar7"
-            android:layout_weight="0.27" />
-    </LinearLayout>
-
     <include layout="@layout/content_main"
-        android:id="@+id/include"
-        android:layout_height="405dp" />
+        android:id="@+id/include" />
 
 </android.support.design.widget.CoordinatorLayout>
