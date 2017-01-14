@@ -5,6 +5,8 @@ package com.honeybin.sketchu;
  */
 
 public class Sketchu {
+    private String form = "";
+
     private int hunger = 0;
     private int cleanliness = 0;
     private int love = 0;
