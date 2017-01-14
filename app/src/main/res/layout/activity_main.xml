@@ -37,19 +37,6 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="85dp"
-        android:id="@+id/collectionButton"
-        app:layout_anchor="@+id/include"
-        app:layout_anchorGravity="bottom|center_horizontal"
-        android:layout_gravity="top|center_horizontal"
-        android:background="@drawable/collectionbutton"
-        tools:layout_marginBottom="10dp" />
-
-    <include layout="@layout/content_main"
-        android:id="@+id/include" />
-
-    <Button
-        android:layout_width="wrap_content"
         android:layout_height="81dp"
         android:id="@+id/foodButton"
         app:layout_anchor="@+id/include"
@@ -58,5 +45,18 @@
         android:background="@drawable/foodbutton"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp" />
+
+    <include layout="@layout/content_main"
+        android:id="@+id/include" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="85dp"
+        android:id="@+id/collectionButton"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="bottom|center_horizontal"
+        android:layout_gravity="top|center_horizontal"
+        android:background="@drawable/collectionbutton"
+        android:layout_marginBottom="10dp" />
 
 </android.support.design.widget.CoordinatorLayout>
