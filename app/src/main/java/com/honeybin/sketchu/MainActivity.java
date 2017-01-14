@@ -3,8 +3,10 @@ package com.honeybin.sketchu;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -45,8 +47,21 @@ public class MainActivity extends AppCompatActivity {
         eventButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), EventListActivity.class);
-                startActivity(i);
+                Drawable d = getResources().getDrawable(R.drawable.eventlistbuttonpressed);
+
+                eventButton.setBackgroundDrawable(d);
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent i = new Intent(getApplicationContext(), EventListActivity.class);
+                        Drawable d1 = getResources().getDrawable(R.drawable.eventlistbutton);
+                        eventButton.setBackgroundDrawable(d1);
+                        startActivity(i);
+                    }
+                }, 100);
+                //eventButton.setBackgroundDrawable(d1);
             }
         });
         createSketchu();
