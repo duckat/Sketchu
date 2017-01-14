@@ -1,5 +1,8 @@
 package com.honeybin.sketchu;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 /**
  * Created by klee166 on 1/12/2017.
  */
@@ -7,6 +10,7 @@ package com.honeybin.sketchu;
 public class Event {
     private String name;
     private int durationMin;
+    private SimpleDateFormat startTime, endTime;
     private String detail;
 
     public Event(String name, int startHour, int startMinute, int endHour, int endMinute, String exp) {

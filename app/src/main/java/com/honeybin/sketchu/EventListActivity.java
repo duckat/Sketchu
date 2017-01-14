@@ -57,6 +57,7 @@ public class EventListActivity extends AppCompatActivity {
                 i.putExtra("name", e.getName());
                 i.putExtra("duration", e.getDurationMin());
                 i.putExtra("detail", e.getDetail());
+                i.putExtra("id", position);
                 startActivity(i);
             }
         });

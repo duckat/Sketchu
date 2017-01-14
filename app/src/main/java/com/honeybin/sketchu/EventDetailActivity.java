@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class EventDetailActivity extends AppCompatActivity {
-
+    private EventsDBHelper events_db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +21,13 @@ public class EventDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        events_db = new EventsDBHelper(this);
+
         Intent i = getIntent();
         String name = i.getExtras().getString("name");
         int duration = i.getExtras().getInt("duration");
         String detail = i.getExtras().getString("detail");
+        final int id = i.getExtras().getInt("id");
 
         final EditText nameEditText = (EditText) findViewById(R.id.editText);
         EditText durationEditText = (EditText) findViewById(R.id.editText2);
@@ -41,7 +44,10 @@ public class EventDetailActivity extends AppCompatActivity {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
                 Editable test = nameEditText.getText();
-                Toast.makeText(getBaseContext(), test, Toast.LENGTH_SHORT).show();
+
+                events_db.getData(0);
+
+                Toast.makeText(getBaseContext(), id + "", Toast.LENGTH_SHORT).show();
 //                Toast.makeText(getBaseContext(), "Successfully updated!", Toast.LENGTH_SHORT).show();
                 finish();
             }
