@@ -20,23 +20,23 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="SET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/startTimeText"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/setStartTimeButton" />
+        android:id="@+id/setStartTimeButton"
+        android:background="@drawable/setbutton" />
 
     <Button
-        android:text="Set"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/setEndTimeButton"
         android:layout_alignBaseline="@+id/endTimeText"
         android:layout_alignBottom="@+id/endTimeText"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/setbutton" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -83,19 +83,8 @@
         android:layout_marginBottom="51dp"
         android:layout_above="@+id/detailTxt"
         android:layout_alignLeft="@+id/addDecideButton"
-        android:layout_alignStart="@+id/addDecideButton" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/startTimeText"
-        android:layout_marginBottom="37dp"
-        android:layout_above="@+id/setEndTimeButton"
-        android:layout_alignLeft="@+id/endTimeText"
-        android:layout_alignStart="@+id/endTimeText" />
+        android:layout_alignStart="@+id/addDecideButton"
+        style="@style/Widget.AppCompat.AutoCompleteTextView" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -125,5 +114,17 @@
         android:layout_alignTop="@+id/setEndTimeButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/startTimeText"
+        android:layout_marginBottom="38dp"
+        android:layout_above="@+id/setEndTimeButton"
+        android:layout_alignLeft="@+id/endTimeText"
+        android:layout_alignStart="@+id/endTimeText" />
 
 </RelativeLayout>
