@@ -71,4 +71,21 @@ public class EventListActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        MainActivity.resumeBGM();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        MainActivity.stopBGM();
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        MainActivity.shouldPlay = true;
+    }
 }

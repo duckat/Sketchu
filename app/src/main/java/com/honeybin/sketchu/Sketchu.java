@@ -6,12 +6,13 @@ package com.honeybin.sketchu;
 
 public class Sketchu {
     private String form = "";
+    private String createDate = "";
+    private int age = 0;
+    private String name = "Babichu";
 
     ///essential stats
     private int hunger = 50;
-    private int cleanliness = 50;
     private int love = 50;
-    private int drowsiness = 50;
 
     // intelligence category
     private double knowledge = 0.0;
@@ -41,6 +42,11 @@ public class Sketchu {
     public Sketchu() {
 
     }
+
+    public Sketchu(String customName){
+        this.name = customName;
+    }
+
     private double minToHour(double minutes) {
         double timeScore = minutes / 60.0;
         return timeScore;
@@ -126,6 +132,30 @@ public class Sketchu {
         this.form = form;
     }
 
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getHunger() {
         return hunger;
     }
@@ -134,28 +164,12 @@ public class Sketchu {
         this.hunger = hunger;
     }
 
-    public int getCleanliness() {
-        return cleanliness;
-    }
-
-    public void setCleanliness(int cleanliness) {
-        this.cleanliness = cleanliness;
-    }
-
     public int getLove() {
         return love;
     }
 
     public void setLove(int love) {
         this.love = love;
-    }
-
-    public int getDrowsiness() {
-        return drowsiness;
-    }
-
-    public void setDrowsiness(int drowsiness) {
-        this.drowsiness = drowsiness;
     }
 
     public double getKnowledge() {

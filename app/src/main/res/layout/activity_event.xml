@@ -11,98 +11,51 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.honeybin.sketchu.AddEventActivity">
 
-    <Button
-        android:text="ADD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/addDecideButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/startTimeText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/setStartTimeButton"
-        android:background="@drawable/setbutton" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/setEndTimeButton"
-        android:layout_alignBaseline="@+id/endTimeText"
-        android:layout_alignBottom="@+id/endTimeText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/setbutton" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/nametitle"
-        android:id="@+id/imageView2"
-        android:layout_alignTop="@+id/nameTxt"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/nameTxt"
-        android:layout_marginRight="31dp"
-        android:layout_marginEnd="31dp"
-        android:text="Type Schedule Name"
-        android:layout_above="@+id/setStartTimeButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="26dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/detailTxt"
-        android:layout_marginBottom="162dp"
-        android:layout_above="@+id/addDecideButton"
-        android:layout_alignLeft="@+id/endTimeText"
-        android:layout_alignStart="@+id/endTimeText" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/endTimeText"
-        android:layout_marginBottom="51dp"
-        android:layout_above="@+id/detailTxt"
-        android:layout_alignLeft="@+id/addDecideButton"
-        android:layout_alignStart="@+id/addDecideButton"
-        style="@style/Widget.AppCompat.AutoCompleteTextView" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/starttimetitle"
-        android:id="@+id/imageView3"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/startTimeText"
-        android:layout_alignRight="@+id/imageView4"
-        android:layout_alignEnd="@+id/imageView4" />
+        android:layout_marginTop="55dp" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/detailtitle"
         android:id="@+id/imageView5"
-        android:layout_alignTop="@+id/detailTxt"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="22dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/detailTxt"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_alignTop="@+id/imageView5"
+        android:layout_toRightOf="@+id/imageView5"
+        android:layout_toEndOf="@+id/imageView5"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAllCaps="false"
+        android:fontFamily="casual"
+        android:hint="Tell me more @v@"
+        android:textColorHint="@color/colorPrimaryDark"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/starttimetitle"
+        android:id="@+id/imageView3"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/nameTxt"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -111,20 +64,118 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/endtimetitle"
         android:id="@+id/imageView4"
-        android:layout_alignTop="@+id/setEndTimeButton"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setStartTimeButton"
+        android:background="@null"
+        android:visibility="visible"
+        android:layout_alignTop="@+id/imageView3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/endTimeText"
+        android:layout_toLeftOf="@+id/endTimeText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setEndTimeButton"
+        android:background="@null"
+        android:layout_alignTop="@+id/imageView4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/startTimeText"
+        android:layout_toEndOf="@+id/startTimeText" />
+
+    <TextView
+        android:text="Start Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startTimeText"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="casual"
+        android:textStyle="normal|bold"
+        android:textAlignment="viewEnd"
+        android:layout_gravity="end"
+        android:layout_alignTop="@+id/setStartTimeButton"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="End Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/endTimeText"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="casual"
+        android:textStyle="normal|bold"
+        android:textAlignment="viewStart"
+        android:layout_gravity="start"
+        android:layout_below="@+id/startTimeText"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="New Schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textAlignment="center"
+        android:fontFamily="casual"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/eventlistbuttonpressed"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/addConfirm"
+        app:backgroundTint="@android:color/holo_green_dark" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/addCancel" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
-        android:id="@+id/startTimeText"
-        android:layout_marginBottom="38dp"
-        android:layout_above="@+id/setEndTimeButton"
-        android:layout_alignLeft="@+id/endTimeText"
-        android:layout_alignStart="@+id/endTimeText" />
+        android:id="@+id/nameTxt"
+        android:fontFamily="casual"
+        android:textColor="@color/colorPrimaryDark"
+        android:hint="What's your plan?"
+        android:textStyle="normal|bold"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColorLink="@android:color/holo_green_light" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/animation_sketchu"
+        android:id="@+id/imageButton"
+        android:layout_marginTop="70dp"
+        android:layout_below="@+id/detailTxt"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

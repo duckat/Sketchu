@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button eventButton;
     private static MediaPlayer mp;
+    public static boolean shouldPlay = false;
     private Sketchu mySketchu;
 
     /*
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        shouldPlay = true;
                         Intent i = new Intent(getApplicationContext(), EventListActivity.class);
                         Drawable d1 = getResources().getDrawable(R.drawable.eventlistbutton);
                         eventButton.setBackgroundDrawable(d1);
@@ -69,15 +72,17 @@ public class MainActivity extends AppCompatActivity {
         });
         createSketchu();
 
+        TextView tv1 = (TextView)findViewById(R.id.sketchuName);
+        tv1.setText(mySketchu.getName());
+
+        TextView tv2 = (TextView)findViewById(R.id.sketchuAge);
+        tv2.setText("Week " + mySketchu.getAge());
+
         ProgressBar hungerBar = (ProgressBar) findViewById(R.id.progressBar1);
-        ProgressBar cleanlinessBar = (ProgressBar) findViewById(R.id.progressBar2);
-        ProgressBar loveBar = (ProgressBar) findViewById(R.id.progressBar3);
-        ProgressBar drowsinessBar = (ProgressBar) findViewById(R.id.progressBar4);
+        ProgressBar loveBar = (ProgressBar) findViewById(R.id.progressBar2);
 
         hungerBar.setProgress(mySketchu.getHunger());
-        cleanlinessBar.setProgress(mySketchu.getCleanliness());
         loveBar.setProgress(mySketchu.getLove());
-        drowsinessBar.setProgress(mySketchu.getDrowsiness());
 
     }
 
@@ -127,14 +132,35 @@ public class MainActivity extends AppCompatActivity {
 
     }
 */
+
+
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onResume(){
+        super.onResume();
+        shouldPlay = false;
+        resumeBGM();
     }
 
     @Override
     public void onStop() {
         super.onStop();
+        stopBGM();
+    }
 
+
+
+    //This should go into every activity's onStop() method as override.
+    public static void stopBGM(){
+        if (!shouldPlay) { // pause music if it should not play
+            mp.pause();
+        }
+    }
+
+    //This should go into every activity's onResume() method as override.
+    public static void resumeBGM(){
+//        shouldPlay = false;
+        if(!mp.isPlaying()){
+            mp.start();
+        }
     }
 }

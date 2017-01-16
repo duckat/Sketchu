@@ -3,11 +3,13 @@ package com.honeybin.sketchu;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
@@ -16,12 +18,14 @@ import java.util.Calendar;
 //what is it
 public class AddEventActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btnStartTimePicker, btnEndTimePicker, addButton;
+    private Button btnStartTimePicker, btnEndTimePicker;
+    private FloatingActionButton addButton;
     private int startHour, startMinute;
     private int endHour, endMinute;
     private int mHour, mMinute;
     private EventsDBHelper dbHelper;
-    private EditText txtStart, txtEnd, txtName, txtDetail;
+    private TextView txtStart, txtEnd;
+    private EditText txtName, txtDetail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +34,13 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 
         btnStartTimePicker = (Button) findViewById(R.id.setStartTimeButton);
         btnEndTimePicker = (Button) findViewById(R.id.setEndTimeButton);
-        addButton = (Button) findViewById(R.id.addDecideButton);
+        addButton = (FloatingActionButton) findViewById(R.id.addConfirm);
 
 
         txtName = (EditText)findViewById(R.id.nameTxt);
         txtDetail = (EditText) findViewById(R.id.detailTxt);
-        txtStart=(EditText)findViewById(R.id.startTimeText);
-        txtEnd=(EditText)findViewById(R.id.endTimeText);
+        txtStart=(TextView)findViewById(R.id.startTimeText);
+        txtEnd=(TextView)findViewById(R.id.endTimeText);
 
         btnStartTimePicker.setOnClickListener(this);
         btnEndTimePicker.setOnClickListener(this);
@@ -96,5 +100,17 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
             Intent i = new Intent(getApplicationContext(), EventListActivity.class);
             startActivity(i);
         }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        MainActivity.resumeBGM();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        MainActivity.stopBGM();
     }
 }

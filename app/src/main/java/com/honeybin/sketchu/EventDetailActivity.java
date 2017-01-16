@@ -56,4 +56,15 @@ public class EventDetailActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        MainActivity.resumeBGM();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        MainActivity.stopBGM();
+    }
 }
