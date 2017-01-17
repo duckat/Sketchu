@@ -21,7 +21,7 @@ import static com.honeybin.sketchu.R.id.eventListView;
 public class EventListActivity extends AppCompatActivity {
 
     private ListView eventListView;
-    private ArrayAdapter<Event> eventListAdapter;
+    private EventCursorAdapter eventListAdapter;
     private EventsDBHelper eventsdb;
     public static ArrayList<Event> eventList = new ArrayList<Event>();
     private Button addButton;
@@ -43,7 +43,7 @@ public class EventListActivity extends AppCompatActivity {
             }
         });
 
-        eventListAdapter = new ArrayAdapter<Event>(this, android.R.layout.simple_list_item_1, eventList);
+        eventListAdapter = new EventCursorAdapter(this, eventsdb.getEventCursor());
         eventListView.setAdapter(eventListAdapter);
 
         eventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -57,6 +57,9 @@ public class EventListActivity extends AppCompatActivity {
 
                 Intent i = new Intent(getApplicationContext(), EventDetailActivity.class);
                 Event e = eventList.get(position);
+                int adapterPosition = position - eventListView.getHeaderViewsCount();
+                Cursor cursor = (Cursor) eventListAdapter.getItem(adapterPosition);
+                int row_id = cursor.getInt(cursor.getColumnIndex("_id"));
 //                int adapterPosition = position - eventListView.getHeaderViewsCount();
 //                Cursor cursor = (Cursor) eventListAdapter.getItem(adapterPosition);
 //                int ID = cursor.getInt(cursor.getColumnIndex(("_id")));
@@ -65,7 +68,8 @@ public class EventListActivity extends AppCompatActivity {
                 i.putExtra("startTime", e.getStartTime());
                 i.putExtra("endTime", e.getEndTime());
                 i.putExtra("detail", e.getDetail());
-                i.putExtra("id", id);
+                i.putExtra("id", row_id);
+
                 startActivity(i);
             }
         });

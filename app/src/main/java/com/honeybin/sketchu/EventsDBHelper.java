@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class EventsDBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "MyEvents.db";
     public static final String EVENTS_TABLE_NAME = "events";
-    public static final String EVENTS_COLUMN_ID = "id";
+    public static final String EVENTS_COLUMN_ID = "_id";
     public static final String EVENTS_COLUMN_NAME = "name";
     public static final String EVENTS_COLUMN_START_TIME = "start_time";
     public static final String EVENTS_COLUMN_END_TIME = "end_time";
@@ -30,7 +30,7 @@ public class EventsDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(
           "create table events " +
-                  "(id integer primary key, name text, start_time text, end_time text, detail text)"
+                  "(_id integer primary key autoincrement, name text, start_time text, end_time text, detail text)"
         );
     }
 
@@ -38,6 +38,12 @@ public class EventsDBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS events");
         onCreate(db);
+    }
+
+    public Cursor getEventCursor() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor eventCursor = db.rawQuery("SELECT  * FROM events", null);
+        return eventCursor;
     }
 
     public boolean insertEvent (String name, String startTime, String endTime, String detail) {
@@ -49,6 +55,12 @@ public class EventsDBHelper extends SQLiteOpenHelper {
         contentvalues.put("detail", detail);
         db.insert("events", null, contentvalues);
         return true;
+    }
+
+    public Integer deleteEvent (long id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("events", "_id = ? ",
+        new String[] { Long.toString(id)});
     }
 
 /*

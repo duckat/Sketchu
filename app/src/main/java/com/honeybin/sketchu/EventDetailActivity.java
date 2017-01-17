@@ -7,11 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class EventDetailActivity extends AppCompatActivity {
     private EventsDBHelper events_db;
+    private Button removeEventButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class EventDetailActivity extends AppCompatActivity {
         String endTime = i.getExtras().getString("endTime");
         int duration = i.getExtras().getInt("duration");
         String detail = i.getExtras().getString("detail");
-        final int id = i.getExtras().getInt("id");
+        final long id = i.getExtras().getInt("id");
 
         final EditText nameEditText = (EditText) findViewById(R.id.editText4);
         EditText startTimeText = (EditText) findViewById(R.id.startText);
@@ -37,7 +39,16 @@ public class EventDetailActivity extends AppCompatActivity {
         startTimeText.setText(startTime, EditText.BufferType.EDITABLE);
         endTimeText.setText(endTime, EditText.BufferType.EDITABLE);
         detailEditText.setText(detail, EditText.BufferType.EDITABLE);
+        removeEventButton = (Button) findViewById(R.id.removeEventButton);
 
+
+        removeEventButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                events_db.deleteEvent(id);
+                Intent i = new Intent(getApplicationContext(), EventListActivity.class);
+                startActivity(i);
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

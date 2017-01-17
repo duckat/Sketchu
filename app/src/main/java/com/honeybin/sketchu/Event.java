@@ -9,12 +9,16 @@ import java.util.ArrayList;
  */
 
 public class Event {
+    private static int num = 0;
+    private int id;
     private String name;
     private int durationMin;
     private String startTime, endTime;
     private String detail;
 
     public Event(String name, int startHour, int startMinute, int endHour, int endMinute, String exp) {
+        this.id = num;
+        this.id++;
         this.name = name;
         this.durationMin = measureTime(startHour, startMinute, endHour, endMinute);
         this.detail = exp;
@@ -37,6 +41,10 @@ public class Event {
         int startTime = sh * 60 + sm;
         int endTime = eh * 60 + em;
         return endTime - startTime;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     public String getName() {
