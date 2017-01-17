@@ -63,6 +63,17 @@ public class EventsDBHelper extends SQLiteOpenHelper {
         new String[] { Long.toString(id)});
     }
 
+    public boolean updateEvent (long id, String name, String startTime, String endTime, String detail) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("name",name);
+        cv.put("start_time",startTime);
+        cv.put("end_time",endTime);
+        cv.put("detail",detail);
+        db.update("events", cv, "_id = ? ", new String[] { Long.toString(id) } );
+        return true;
+    }
+
 /*
     public Event editData(int id, String name, int durationMin, String detail) {
         SQLiteDatabase db = this.getReadableDatabase();

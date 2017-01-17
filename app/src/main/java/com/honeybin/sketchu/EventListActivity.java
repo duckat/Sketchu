@@ -60,9 +60,6 @@ public class EventListActivity extends AppCompatActivity {
                 int adapterPosition = position - eventListView.getHeaderViewsCount();
                 Cursor cursor = (Cursor) eventListAdapter.getItem(adapterPosition);
                 int row_id = cursor.getInt(cursor.getColumnIndex("_id"));
-//                int adapterPosition = position - eventListView.getHeaderViewsCount();
-//                Cursor cursor = (Cursor) eventListAdapter.getItem(adapterPosition);
-//                int ID = cursor.getInt(cursor.getColumnIndex(("_id")));
 
                 i.putExtra("name", e.getName());
                 i.putExtra("startTime", e.getStartTime());
