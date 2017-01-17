@@ -19,19 +19,25 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button eventButton;
+    private Button foodButton;
     private static MediaPlayer mp;
     public static boolean shouldPlay = false;
     private Sketchu mySketchu;
-
+    private HashMap<String, Integer> beanBag;
     /*
     private SharedPreferences sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
     */
@@ -43,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.backgroundmusic);
         mp.setLooping(true);
         mp.start();
+
+        beanBag = new HashMap<String, Integer>();
+        beanBag.put("Study Bean", 3);
+        beanBag.put("Workout Bean", 2);
 
         ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuPic);
         ((AnimationDrawable) sketchuMotion.getBackground()).start();
@@ -70,6 +80,38 @@ public class MainActivity extends AppCompatActivity {
                 //eventButton.setBackgroundDrawable(d1);
             }
         });
+        foodButton = (Button) findViewById(R.id.foodButton);
+
+        foodButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Drawable d = getResources().getDrawable(R.drawable.eventlistbuttonpressed);
+
+                foodButton.setBackgroundDrawable(d);
+                //Creating the instance of PopupMenu
+                PopupMenu popup = new PopupMenu(MainActivity.this, foodButton);
+                popup.getMenu().add("new menu: 1");
+                //Inflating the Popup using xml file
+                popup.getMenuInflater()
+                        .inflate(R.menu.popup_menu, popup.getMenu());
+
+                //registering popup with OnMenuItemClickListener
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Toast.makeText(
+                                MainActivity.this,
+                                "You Clicked : " + item.getTitle(),
+                                Toast.LENGTH_SHORT
+                        ).show();
+                        return true;
+                    }
+                });
+
+                popup.show(); //showing popup menu
+
+            }
+        });
+
         createSketchu();
 
         TextView tv1 = (TextView)findViewById(R.id.sketchuName);
