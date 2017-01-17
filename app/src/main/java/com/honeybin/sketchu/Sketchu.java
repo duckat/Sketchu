@@ -1,5 +1,14 @@
 package com.honeybin.sketchu;
 
+import android.util.Log;
+
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * Sketchu class.
  */
@@ -7,11 +16,12 @@ package com.honeybin.sketchu;
 public class Sketchu {
     private String form = "";
     private String createDate = "";
+    private String lastUpdate = "";
     private int age = 0;
     private String name = "Babichu";
 
     ///essential stats
-    private int hunger = 50;
+    private int hunger = 100;
     private int love = 50;
 
     // intelligence category
@@ -40,7 +50,8 @@ public class Sketchu {
     private double otakuness = 0.0;
 
     public Sketchu() {
-
+        createDate = TimeHelper.getCurrentTimeString();
+        lastUpdate = createDate;
     }
 
     public Sketchu(String customName){
@@ -50,6 +61,30 @@ public class Sketchu {
     private double minToHour(double minutes) {
         double timeScore = minutes / 60.0;
         return timeScore;
+    }
+
+    public void update(){
+//        cal = Calendar.getInstance();
+        String now = TimeHelper.getCurrentTimeString();
+        long interval = TimeHelper.findTimeDiff(lastUpdate, now);
+        naturalDecay(interval);
+        Log.d("updating", TimeHelper.findTimeDiff(lastUpdate, now) + "");
+        lastUpdate = now;
+    }
+//
+//    private long findTimeDiff(String original, String current){
+//        DateTime orig = DateTime.parse(original);
+//        DateTime now = DateTime.parse(current);
+//        Duration duration = new Duration(orig, now);
+//        //this part should be getStandardMinutes() for actual production
+//        return duration.getStandardSeconds();
+//    }
+
+    private void naturalDecay(long timePassed){
+        hunger -= timePassed;
+        love -= timePassed;
+        if(hunger < 0){ hunger = 0;}
+        if(love < 0){ love = 0;}
     }
 
     public void incHunger(double time) {
@@ -138,6 +173,14 @@ public class Sketchu {
 
     public void setCreateDate(String createDate) {
         this.createDate = createDate;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
     public int getAge() {

@@ -12,6 +12,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -120,11 +121,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tv2 = (TextView)findViewById(R.id.sketchuAge);
         tv2.setText("Week " + mySketchu.getAge());
 
-        ProgressBar hungerBar = (ProgressBar) findViewById(R.id.progressBar1);
-        ProgressBar loveBar = (ProgressBar) findViewById(R.id.progressBar2);
 
-        hungerBar.setProgress(mySketchu.getHunger());
-        loveBar.setProgress(mySketchu.getLove());
 
     }
 
@@ -179,6 +176,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+//        Log.d("onresume", mySketchu.getLastUpdate());
+        mySketchu.update();
+//        Log.d("onresume", mySketchu.getLastUpdate());
+
+        ProgressBar hungerBar = (ProgressBar) findViewById(R.id.progressBar1);
+        ProgressBar loveBar = (ProgressBar) findViewById(R.id.progressBar2);
+
+        hungerBar.setProgress(mySketchu.getHunger());
+        loveBar.setProgress(mySketchu.getLove());
+
         shouldPlay = false;
         resumeBGM();
     }

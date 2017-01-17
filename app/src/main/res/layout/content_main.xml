@@ -13,6 +13,7 @@
     tools:context="com.honeybin.sketchu.MainActivity"
     tools:showIn="@layout/activity_main">
 
+
     <TextView
         android:text="Name"
         android:layout_width="wrap_content"
@@ -20,53 +21,16 @@
         android:textSize="50sp"
 
         android:id="@+id/sketchuName"
-        android:layout_above="@+id/progressBar2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="19dp"
         android:fontFamily="casual"
         android:textStyle="normal|bold|italic"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_toLeftOf="@+id/sketchuAge"
-        android:layout_toStartOf="@+id/sketchuAge" />
-
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/progressBar1"
-        android:layout_alignLeft="@+id/progressBar1"
-        android:layout_alignStart="@+id/progressBar1"
-        android:id="@+id/progressBar2" />
-
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/progressBar2"
-        android:layout_alignLeft="@+id/progressBar2"
-        android:layout_alignStart="@+id/progressBar2"
-        android:id="@+id/progressBar3" />
-
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/progressBar3"
-        android:layout_alignLeft="@+id/progressBar3"
-        android:layout_alignStart="@+id/progressBar3"
-        android:id="@+id/progressBar4" />
-
-
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="63dp"
-        android:id="@+id/progressBar1"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/sketchuAge"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toLeftOf="@+id/sketchuAge" />
 
     <TextView
         android:text="Age"
@@ -77,9 +41,31 @@
         android:id="@+id/sketchuAge"
         android:fontFamily="casual"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:layout_alignTop="@+id/progressBar1"
+        android:layout_below="@+id/sketchuName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:progressDrawable="@drawable/customprogressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar1"
+        android:layout_below="@+id/sketchuAge"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="13dp" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:progressDrawable="@drawable/customprogressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar2"
+        android:layout_below="@+id/progressBar1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp" />
 
 
 </RelativeLayout>
