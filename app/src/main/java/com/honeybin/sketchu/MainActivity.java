@@ -50,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mp = MediaPlayer.create(this, R.raw.backgroundmusic);
 
-        /*
+
         mp.setLooping(true);
-        mp.start();
-        */
+//        mp.start();
+
 
         beanBag = new HashMap<String, Integer>();
         beanBag.put("Study Bean", 3);
@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 //eventButton.setBackgroundDrawable(d1);
             }
         });
+
         foodButton = (Button) findViewById(R.id.foodButton);
 
         foodButton.setOnClickListener(new Button.OnClickListener() {
@@ -192,30 +193,34 @@ public class MainActivity extends AppCompatActivity {
         hungerBar.setProgress(mySketchu.getHunger());
         loveBar.setProgress(mySketchu.getLove());
 
-        //shouldPlay = false;
-        //resumeBGM();
+        Log.d("MainActivity", "onResume");
+//        mp.start();
+        resumeBGM();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-    //    stopBGM();
+        Log.d("MainActivity", "onStop");
+        stopBGM();
+
     }
 
 
 
     //This should go into every activity's onStop() method as override.
-    //public static void stopBGM(){
-    //    if (!shouldPlay) { // pause music if it should not play
-    //        mp.pause();
-    //    }
-    //}
+    public static void stopBGM(){
+        if (!shouldPlay) { // pause music if it should not play
+            mp.pause();
+        }
+        shouldPlay = false;
+    }
 
     //This should go into every activity's onResume() method as override.
-    //public static void resumeBGM(){
-//  //      shouldPlay = false;
-    //    if(!mp.isPlaying()){
-    //        mp.start();
-    //    }
-    // }
+    public static void resumeBGM(){
+  //      shouldPlay = false;
+        if(!mp.isPlaying()){
+            mp.start();
+        }
+     }
 }

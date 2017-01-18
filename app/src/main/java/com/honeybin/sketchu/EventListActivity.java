@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -40,6 +41,7 @@ public class EventListActivity extends AppCompatActivity {
         addButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MainActivity.shouldPlay = true;
                 Intent i = new Intent(getApplicationContext(), AddEventActivity.class);
                 startActivity(i);
             }
@@ -49,8 +51,10 @@ public class EventListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //MainActivity.shouldPlay = true;
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
+//                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+//                startActivity(i);
+                MainActivity.shouldPlay = true;
+                onBackPressed();
             }
         });
 
@@ -65,7 +69,7 @@ public class EventListActivity extends AppCompatActivity {
 //                String item = ((TextView)view).getText().toString();
 //
 //                Toast.makeText(getBaseContext(), item, Toast.LENGTH_SHORT).show();
-
+                MainActivity.shouldPlay = true;
                 Intent i = new Intent(getApplicationContext(), EventDetailActivity.class);
                 Event e = eventList.get(position);
                 int adapterPosition = position - eventListView.getHeaderViewsCount();
@@ -86,19 +90,20 @@ public class EventListActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        //MainActivity.resumeBGM();
+        Log.d("EventListActivity", "onResume");
+        MainActivity.resumeBGM();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //MainActivity.stopBGM();
+        MainActivity.stopBGM();
     }
 
-    @Override
-    public void onBackPressed(){
-
-        //does not do anything
-    }
+//    @Override
+//    public void onBackPressed(){
+//
+//        //does not do anything
+//    }
 
 }

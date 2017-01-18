@@ -100,29 +100,33 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 
             dbHelper.insertEvent(name, startTime, endTime, detail);
             //EventListActivity.eventList.add(new Event(name, startHour, startMinute, endHour, endMinute, detail));
-            Intent i = new Intent(getApplicationContext(), EventListActivity.class);
-            startActivity(i);
+//            Intent i = new Intent(getApplicationContext(), EventListActivity.class);
+//            startActivity(i);
+            MainActivity.shouldPlay = true;
+            onBackPressed();
         }
         if(v == backButton) {
-            Intent i = new Intent(getApplicationContext(), EventListActivity.class);
-            startActivity(i);
+//            Intent i = new Intent(getApplicationContext(), EventListActivity.class);
+//            startActivity(i);
+            MainActivity.shouldPlay = true;
+            onBackPressed();
         }
     }
 
     @Override
     public void onResume(){
         super.onResume();
-        //MainActivity.resumeBGM();
+        MainActivity.resumeBGM();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //MainActivity.stopBGM();
+        MainActivity.stopBGM();
     }
 
-    @Override
-    public void onBackPressed() {
-        //does nothing
-    }
+//    @Override
+//    public void onBackPressed() {
+//        //does nothing
+//    }
 }
