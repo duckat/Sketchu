@@ -3,12 +3,14 @@ package com.honeybin.sketchu;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -20,6 +22,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 
     private Button btnStartTimePicker, btnEndTimePicker;
     private FloatingActionButton addButton;
+    private Button backButton;
     private int startHour, startMinute;
     private int endHour, endMinute;
     private int mHour, mMinute;
@@ -35,7 +38,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         btnStartTimePicker = (Button) findViewById(R.id.setStartTimeButton);
         btnEndTimePicker = (Button) findViewById(R.id.setEndTimeButton);
         addButton = (FloatingActionButton) findViewById(R.id.addConfirm);
-
+        backButton = (Button) findViewById(R.id.backButton);
 
         txtName = (EditText)findViewById(R.id.nameTxt);
         txtDetail = (EditText) findViewById(R.id.detailTxt);
@@ -45,7 +48,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         btnStartTimePicker.setOnClickListener(this);
         btnEndTimePicker.setOnClickListener(this);
         addButton.setOnClickListener(this);
-
+        backButton.setOnClickListener(this);
     }
 
     @Override
@@ -100,17 +103,21 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
             Intent i = new Intent(getApplicationContext(), EventListActivity.class);
             startActivity(i);
         }
+        if(v == backButton) {
+            Intent i = new Intent(getApplicationContext(), EventListActivity.class);
+            startActivity(i);
+        }
     }
 
     @Override
     public void onResume(){
         super.onResume();
-        MainActivity.resumeBGM();
+        //MainActivity.resumeBGM();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        MainActivity.stopBGM();
+        //MainActivity.stopBGM();
     }
 }

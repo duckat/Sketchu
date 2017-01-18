@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private Button foodButton;
     private static MediaPlayer mp;
     public static boolean shouldPlay = false;
+    public boolean startBackground = true;
     private Sketchu mySketchu;
     private HashMap<String, Integer> beanBag;
     /*
@@ -48,12 +49,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mp = MediaPlayer.create(this, R.raw.backgroundmusic);
+
+        /*
         mp.setLooping(true);
         mp.start();
+        */
 
         beanBag = new HashMap<String, Integer>();
         beanBag.put("Study Bean", 3);
         beanBag.put("Workout Bean", 2);
+
+
 
         ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuPic);
         ((AnimationDrawable) sketchuMotion.getBackground()).start();
@@ -120,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tv2 = (TextView)findViewById(R.id.sketchuAge);
         tv2.setText("Week " + mySketchu.getAge());
-
+        startBackground = false;
 
 
     }
@@ -186,30 +192,30 @@ public class MainActivity extends AppCompatActivity {
         hungerBar.setProgress(mySketchu.getHunger());
         loveBar.setProgress(mySketchu.getLove());
 
-        shouldPlay = false;
-        resumeBGM();
+        //shouldPlay = false;
+        //resumeBGM();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        stopBGM();
+    //    stopBGM();
     }
 
 
 
     //This should go into every activity's onStop() method as override.
-    public static void stopBGM(){
-        if (!shouldPlay) { // pause music if it should not play
-            mp.pause();
-        }
-    }
+    //public static void stopBGM(){
+    //    if (!shouldPlay) { // pause music if it should not play
+    //        mp.pause();
+    //    }
+    //}
 
     //This should go into every activity's onResume() method as override.
-    public static void resumeBGM(){
-//        shouldPlay = false;
-        if(!mp.isPlaying()){
-            mp.start();
-        }
-    }
+    //public static void resumeBGM(){
+//  //      shouldPlay = false;
+    //    if(!mp.isPlaying()){
+    //        mp.start();
+    //    }
+    // }
 }

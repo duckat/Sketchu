@@ -16,6 +16,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import static com.honeybin.sketchu.R.id.addEventButton;
+import static com.honeybin.sketchu.R.id.backEventButton;
 import static com.honeybin.sketchu.R.id.eventListView;
 
 public class EventListActivity extends AppCompatActivity {
@@ -25,6 +26,7 @@ public class EventListActivity extends AppCompatActivity {
     private EventsDBHelper eventsdb;
     public static ArrayList<Event> eventList = new ArrayList<Event>();
     private Button addButton;
+    private Button backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,15 @@ public class EventListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), AddEventActivity.class);
+                startActivity(i);
+            }
+        });
+        backButton = (Button) findViewById(backEventButton);
+        backButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //MainActivity.shouldPlay = true;
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
             }
         });
@@ -75,18 +86,19 @@ public class EventListActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        MainActivity.resumeBGM();
+        //MainActivity.resumeBGM();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        MainActivity.stopBGM();
+        //MainActivity.stopBGM();
     }
 
     @Override
     public void onBackPressed(){
-        super.onBackPressed();
-        MainActivity.shouldPlay = true;
+
+        //does not do anything
     }
+
 }

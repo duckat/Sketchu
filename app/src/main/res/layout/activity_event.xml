@@ -142,17 +142,6 @@
         android:id="@+id/addConfirm"
         app:backgroundTint="@android:color/holo_green_dark" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:fabSize="mini"
-        app:srcCompat="@android:drawable/ic_menu_delete"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/addCancel" />
-
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -160,7 +149,8 @@
         android:id="@+id/imageButton"
         android:layout_marginTop="70dp"
         android:layout_below="@+id/detailTxt"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#00000000"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -177,5 +167,16 @@
         android:layout_alignTop="@+id/imageView"
         android:layout_alignLeft="@+id/detailTxt"
         android:layout_alignStart="@+id/detailTxt" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/backButton"
+        android:background="@drawable/backbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/imageButton"
+        android:layout_toStartOf="@+id/imageButton" />
 
 </RelativeLayout>
