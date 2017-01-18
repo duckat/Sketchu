@@ -43,7 +43,7 @@ public class EventListActivity extends AppCompatActivity {
             public void onClick(View view) {
                 MainActivity.shouldPlay = true;
                 Intent i = new Intent(getApplicationContext(), AddEventActivity.class);
-                startActivity(i);
+                startActivityForResult(i, RESULT_OK);
             }
         });
         backButton = (Button) findViewById(backEventButton);
@@ -54,7 +54,7 @@ public class EventListActivity extends AppCompatActivity {
 //                Intent i = new Intent(getApplicationContext(), MainActivity.class);
 //                startActivity(i);
                 MainActivity.shouldPlay = true;
-                onBackPressed();
+                finish();
             }
         });
 
@@ -70,6 +70,7 @@ public class EventListActivity extends AppCompatActivity {
 //
 //                Toast.makeText(getBaseContext(), item, Toast.LENGTH_SHORT).show();
                 MainActivity.shouldPlay = true;
+
                 Intent i = new Intent(getApplicationContext(), EventDetailActivity.class);
                 Event e = eventList.get(position);
                 int adapterPosition = position - eventListView.getHeaderViewsCount();
@@ -82,7 +83,7 @@ public class EventListActivity extends AppCompatActivity {
                 i.putExtra("detail", e.getDetail());
                 i.putExtra("id", row_id);
 
-                startActivity(i);
+                startActivityForResult(i, RESULT_OK);
             }
         });
     }
@@ -90,6 +91,17 @@ public class EventListActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+//        listViewNotify();
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                eventListAdapter.notifyDataSetChanged();
+//            }
+//        });
+        if (eventListView != null)
+        {
+            updateData();
+        }
         Log.d("EventListActivity", "onResume");
         MainActivity.resumeBGM();
     }
@@ -99,11 +111,22 @@ public class EventListActivity extends AppCompatActivity {
         super.onStop();
         MainActivity.stopBGM();
     }
-
 //    @Override
-//    public void onBackPressed(){
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+//        super.onActivityResult(requestCode, resultCode, data);
+//        eventListAdapter.notifyDataSetChanged();
 //
-//        //does not do anything
 //    }
+    private void updateData()
+    {
+        eventList = eventsdb.getAllEvents();
+        eventListAdapter = new EventCursorAdapter(this, eventsdb.getEventCursor());
+        eventListView.setAdapter(eventListAdapter);
+    }
+    @Override
+    public void onBackPressed(){
+
+        //does not do anything
+    }
 
 }

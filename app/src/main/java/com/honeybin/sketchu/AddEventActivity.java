@@ -102,13 +102,15 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 //            Intent i = new Intent(getApplicationContext(), EventListActivity.class);
 //            startActivity(i);
             MainActivity.shouldPlay = true;
-            onBackPressed();
+            this.finish();
+//            EventListActivity.listViewNotify();
+//            onBackPressed();
         }
         if(v == backButton) {
 //            Intent i = new Intent(getApplicationContext(), EventListActivity.class);
 //            startActivity(i);
             MainActivity.shouldPlay = true;
-            onBackPressed();
+            finish();
         }
     }
 
@@ -124,8 +126,8 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         MainActivity.stopBGM();
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        //does nothing
-//    }
+    @Override
+    public void onBackPressed() {
+        //does nothing
+    }
 }

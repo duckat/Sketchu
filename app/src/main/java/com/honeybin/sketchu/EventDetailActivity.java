@@ -62,8 +62,10 @@ public class EventDetailActivity extends AppCompatActivity {
         removeEventButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 events_db.deleteEvent(id);
-                Intent i = new Intent(getApplicationContext(), EventListActivity.class);
-                startActivity(i);
+                MainActivity.shouldPlay = true;
+                finish();
+//                Intent i = new Intent(getApplicationContext(), EventListActivity.class);
+//                startActivity(i);
             }
         });
 
@@ -77,8 +79,10 @@ public class EventDetailActivity extends AppCompatActivity {
                 endTimeString = endTimeText.getText().toString();
 
                 events_db.updateEvent(id, nameString, startTimeString, endTimeString, detailString);
-                Intent i = new Intent(getApplicationContext(), EventListActivity.class);
-                startActivity(i);
+//                Intent i = new Intent(getApplicationContext(), EventListActivity.class);
+//                startActivity(i);
+                MainActivity.shouldPlay = true;
+                finish();
             }
         });
     }
@@ -86,12 +90,17 @@ public class EventDetailActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        //MainActivity.resumeBGM();
+        MainActivity.resumeBGM();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //MainActivity.stopBGM();
+        MainActivity.stopBGM();
+    }
+
+    @Override
+    public void onBackPressed(){
+        //doesn't do anything
     }
 }
