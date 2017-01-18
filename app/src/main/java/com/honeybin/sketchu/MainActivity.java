@@ -237,4 +237,9 @@ public class MainActivity extends AppCompatActivity {
             mp.start();
         }
      }
+
+    @Override
+    public void onBackPressed() {
+        //does nothing
+    }
 }
