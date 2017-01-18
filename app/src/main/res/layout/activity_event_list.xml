@@ -29,23 +29,23 @@
     </LinearLayout>
 
     <Button
-        android:layout_height="73dp"
         android:id="@+id/addEventButton"
         android:background="@drawable/addbutton"
-        android:layout_width="140dp"
         android:layout_weight="0.08"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_width="120dp"
+        android:layout_height="53dp" />
 
     <Button
         android:id="@+id/backEventButton"
         android:background="@drawable/backbutton"
-        android:layout_height="73dp"
         android:layout_weight="1"
-        android:layout_width="140dp"
+        android:layout_width="120dp"
+        android:layout_height="53dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/addEventButton" />
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

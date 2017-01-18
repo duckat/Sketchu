@@ -1,18 +1,13 @@
 package com.honeybin.sketchu;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,12 +18,6 @@ import android.widget.TextView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
         beanBag.put("Study Bean", 3);
         beanBag.put("Workout Bean", 2);
 
+
+
+        TextView sketchuName = (TextView)findViewById(R.id.sketchuName);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/rudiment.ttf");
+        sketchuName.setTypeface(custom_font);
 
 
         ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuPic);

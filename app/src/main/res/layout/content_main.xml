@@ -14,37 +14,6 @@
     tools:showIn="@layout/activity_main">
 
 
-    <TextView
-        android:text="Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-
-        android:id="@+id/sketchuName"
-        android:fontFamily="casual"
-        android:textStyle="normal|bold|italic"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/sketchuAge"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toLeftOf="@+id/sketchuAge" />
-
-    <TextView
-        android:text="Age"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-
-        android:id="@+id/sketchuAge"
-        android:fontFamily="casual"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:layout_below="@+id/sketchuName"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
         android:progressDrawable="@drawable/customprogressbar"
@@ -66,6 +35,37 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="14dp" />
+
+    <TextView
+        android:text="Age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+
+        android:id="@+id/sketchuAge"
+        android:fontFamily="casual"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:layout_below="@+id/sketchuName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="23dp"
+        android:layout_marginEnd="23dp" />
+
+    <TextView
+        android:text="Name"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+
+        android:id="@+id/sketchuName"
+        android:fontFamily="casual"
+        android:textStyle="normal|bold|italic"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_width="330dp" />
 
 
 </RelativeLayout>

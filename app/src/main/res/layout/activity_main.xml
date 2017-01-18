@@ -17,6 +17,12 @@
     </android.support.design.widget.AppBarLayout>
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="161dp"
+        app:srcCompat="@drawable/interfacegauge"
+        android:id="@+id/imageView2" />
+
+    <ImageView
         android:layout_width="118dp"
         android:layout_height="142dp"
         android:background="@drawable/animation_sketchu"
@@ -46,9 +52,6 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp" />
 
-    <include layout="@layout/content_main"
-        android:id="@+id/include" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="85dp"
@@ -58,5 +61,10 @@
         android:layout_gravity="top|center_horizontal"
         android:background="@drawable/collectionbutton"
         android:layout_marginBottom="10dp" />
+
+    <include layout="@layout/content_main"
+        android:id="@+id/include"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
 
 </android.support.design.widget.CoordinatorLayout>
