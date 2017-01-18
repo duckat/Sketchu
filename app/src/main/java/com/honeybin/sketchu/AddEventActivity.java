@@ -21,7 +21,7 @@ import java.util.Calendar;
 public class AddEventActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button btnStartTimePicker, btnEndTimePicker;
-    private FloatingActionButton addButton;
+    private Button addButton;
     private Button backButton;
     private int startHour, startMinute;
     private int endHour, endMinute;
@@ -37,7 +37,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 
         btnStartTimePicker = (Button) findViewById(R.id.setStartTimeButton);
         btnEndTimePicker = (Button) findViewById(R.id.setEndTimeButton);
-        addButton = (FloatingActionButton) findViewById(R.id.addConfirm);
+        addButton = (Button) findViewById(R.id.confirmButton);
         backButton = (Button) findViewById(R.id.backButton);
 
         txtName = (EditText)findViewById(R.id.nameTxt);
@@ -119,5 +119,10 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
     public void onStop() {
         super.onStop();
         //MainActivity.stopBGM();
+    }
+
+    @Override
+    public void onBackPressed() {
+        //does nothing
     }
 }
