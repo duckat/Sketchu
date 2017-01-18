@@ -30,6 +30,25 @@ public class MainActivity extends AppCompatActivity {
     public boolean startBackground = true;
     private Sketchu mySketchu;
     private HashMap<String, Integer> beanBag;
+    public static final String myPREFERENCES = "MyPrefs";
+    public static final String Name = "emailKey";
+    public static final String hunger = "hungerKey";
+    public static final String love = "loveKey";
+    public static final String knowledge = "knowledgeKey";
+    public static final String creativity = "creativityKey";
+    public static final String comprehensibility = "comprehensibilityKey";
+    public static final String musicalAbility = "musicalKey";
+    public static final String appearance = "appearanceKey";
+    public static final String physicality = "physicalKey";
+    public static final String fitness = "fitnessKey";
+    public static final String sociability = "sociabilityKey";
+    public static final String friendliness = "friendlinessKey";
+    public static final String expressiveness = "expressivenessKey";
+    public static final String confidence = "confidenceKey";
+    public static final String concentration = "concentrationKey";
+    public static final String sentimentality = "sentimentalityKey";
+    public static final String shoppingImpulsiveness = "shoppingImpulsivenessKey";
+    public static final String otakuness = "otakunessKey";
     /*
     private SharedPreferences sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
     */
@@ -52,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView sketchuName = (TextView)findViewById(R.id.sketchuName);
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/rudiment.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/rudimentfont.ttf");
         sketchuName.setTypeface(custom_font);
 
 
