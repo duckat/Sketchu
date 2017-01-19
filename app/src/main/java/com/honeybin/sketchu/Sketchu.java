@@ -49,13 +49,10 @@ public class Sketchu {
     private double shoppingImpulsiveness = 0.0;
     private double otakuness = 0.0;
 
-    public Sketchu() {
+    public Sketchu(String name) {
+        this.name = name;
         createDate = TimeHelper.getCurrentTimeString();
         lastUpdate = createDate;
-    }
-
-    public Sketchu(String customName){
-        this.name = customName;
     }
 
     private double minToHour(double minutes) {

@@ -40,9 +40,8 @@
             android:name=".EventDetailActivity"
             android:label="@string/title_activity_event_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!--
-        <activity android:name=".OpeningActivity"></activity>
-        -->
+        <!--         <activity android:name=".OpeningActivity"></activity> -->
+        <activity android:name=".NameActivity"></activity>
     </application>
 
 </manifest>

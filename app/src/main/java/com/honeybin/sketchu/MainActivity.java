@@ -1,6 +1,7 @@
 package com.honeybin.sketchu;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
@@ -30,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean startBackground = true;
     private Sketchu mySketchu;
     private HashMap<String, Integer> beanBag;
+    private ImageView sketchuImage;
     public static final String myPREFERENCES = "MyPrefs";
-    public static final String Name = "emailKey";
+    public static final String Name = "nameKey";
+    /*
     public static final String hunger = "hungerKey";
     public static final String love = "loveKey";
     public static final String knowledge = "knowledgeKey";
@@ -49,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String sentimentality = "sentimentalityKey";
     public static final String shoppingImpulsiveness = "shoppingImpulsivenessKey";
     public static final String otakuness = "otakunessKey";
-    /*
-    private SharedPreferences sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
     */
 
     @Override
@@ -61,8 +62,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         mp.setLooping(true);
-//        mp.start();
 
+        SharedPreferences sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
+
+        String sketchuTempName = sketchuData.getString(Name, "Name undefined");
+
+        createSketchu(sketchuTempName);
 
         beanBag = new HashMap<String, Integer>();
         beanBag.put("Study Bean", 3);
@@ -134,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        createSketchu();
+        //createSketchu(temp);
 
         TextView tv1 = (TextView)findViewById(R.id.sketchuName);
         tv1.setText(mySketchu.getName());
@@ -168,8 +173,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    private void createSketchu(){
-        mySketchu = new Sketchu();
+    private void createSketchu(String name){
+        mySketchu = new Sketchu(name);
     }
 /*
     private void loadSketchu() {
