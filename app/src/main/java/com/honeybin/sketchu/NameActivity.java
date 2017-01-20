@@ -20,10 +20,10 @@ public class NameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name);
 
-
+/*
         ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuPic);
         ((AnimationDrawable) sketchuMotion.getBackground()).start();
-
+*/
         confirmButton = (Button) findViewById(R.id.confirmButton);
         nameEdit = (EditText) findViewById(R.id.sketchuEditText);
 

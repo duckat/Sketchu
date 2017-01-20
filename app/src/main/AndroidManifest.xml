@@ -45,7 +45,8 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
         <!-- <activity android:name=".OpeningActivity"></activity> -->
-        <activity android:name=".NameActivity" />
+        <activity android:name=".NameActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".SelectTagActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
