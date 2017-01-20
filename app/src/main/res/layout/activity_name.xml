@@ -16,6 +16,20 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:srcCompat="@drawable/interfacegaugetwo"
+        android:id="@+id/imageView13"
+        android:layout_below="@+id/sketchuNamePic"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="34dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:srcCompat="@drawable/talkballoon"
         android:id="@+id/imageView7"
         android:layout_alignParentTop="true"
@@ -41,15 +55,6 @@
         android:layout_below="@+id/imageView7"
         android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/namefield"
-        android:layout_alignTop="@+id/imageView6"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:id="@+id/imageView12" />
-
     <TextView
         android:text="What is my name?"
         android:layout_width="wrap_content"
@@ -65,10 +70,20 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/nametitle"
         android:id="@+id/imageView6"
-        android:layout_marginTop="82dp"
-        android:layout_below="@+id/sketchuNamePic"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="19dp"
+        android:layout_alignTop="@+id/imageView13"
+        android:layout_toLeftOf="@+id/textView"
+        android:layout_toStartOf="@+id/textView" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/namefield"
+        android:id="@+id/imageView14"
+        android:layout_below="@+id/imageView6"
+        android:layout_alignLeft="@+id/imageView6"
+        android:layout_alignStart="@+id/imageView6"
+        android:layout_marginTop="23dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -77,12 +92,12 @@
         android:text="Name"
         android:ems="10"
         android:id="@+id/sketchuEditText"
-        android:layout_alignTop="@+id/imageView6"
         android:background="@android:color/transparent"
-        android:cursorVisible="false"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginTop="13dp"
+        android:layout_alignTop="@+id/imageView14"
+        android:layout_alignLeft="@+id/imageView14"
+        android:layout_alignStart="@+id/imageView14"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp" />
 
 </RelativeLayout>
