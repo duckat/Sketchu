@@ -22,6 +22,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
     private Button btnStartTimePicker, btnEndTimePicker;
     private Button addButton;
     private Button backButton;
+    private Button tagButton;
     private int startHour, startMinute;
     private int endHour, endMinute;
     private int mHour, mMinute;
@@ -38,6 +39,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         btnEndTimePicker = (Button) findViewById(R.id.setEndTimeButton);
         addButton = (Button) findViewById(R.id.confirmButton);
         backButton = (Button) findViewById(R.id.backButton);
+        tagButton = (Button) findViewById(R.id.tagButton);
 
         txtName = (EditText)findViewById(R.id.nameTxt);
         txtDetail = (EditText) findViewById(R.id.detailTxt);
@@ -48,6 +50,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         btnEndTimePicker.setOnClickListener(this);
         addButton.setOnClickListener(this);
         backButton.setOnClickListener(this);
+        tagButton.setOnClickListener(this);
     }
 
     @Override
@@ -111,6 +114,11 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 //            startActivity(i);
             MainActivity.shouldPlay = true;
             finish();
+        }
+        if(v == tagButton){
+            MainActivity.shouldPlay = true;
+            Intent i = new Intent(getApplicationContext(), SelectTagActivity.class);
+            startActivity(i);
         }
     }
 

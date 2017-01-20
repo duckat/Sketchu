@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView sketchuImage;
     public static final String myPREFERENCES = "MyPrefs";
     public static final String Name = "nameKey";
+    public static Typeface custom_font;
     /*
     public static final String hunger = "hungerKey";
     public static final String love = "loveKey";
@@ -76,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView sketchuName = (TextView)findViewById(R.id.sketchuName);
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/rudimentfont.ttf");
-        sketchuName.setTypeface(custom_font);
+        custom_font = Typeface.createFromAsset(getAssets(), "fonts/rudimentfont.ttf");
+        sketchuName.setTypeface(custom_font, Typeface.BOLD);
 
 
         ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuPic);

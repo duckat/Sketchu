@@ -130,16 +130,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/animation_sketchu"
-        android:id="@+id/imageButton"
-        android:layout_marginTop="70dp"
-        android:layout_below="@+id/detailTxt"
-        android:layout_centerHorizontal="true"
-        android:background="#00000000"/>
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -173,5 +163,14 @@
         android:layout_alignParentEnd="true"
         android:id="@+id/confirmButton"
         android:background="@drawable/confirmbutton" />
+
+    <Button
+        android:text="tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tagButton"
+        android:layout_above="@+id/confirmButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="77dp" />
 
 </RelativeLayout>
