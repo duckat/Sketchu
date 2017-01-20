@@ -2,11 +2,13 @@ package com.honeybin.sketchu;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 public class NameActivity extends AppCompatActivity {
 
@@ -18,6 +20,9 @@ public class NameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name);
 
+
+        ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuPic);
+        ((AnimationDrawable) sketchuMotion.getBackground()).start();
 
         confirmButton = (Button) findViewById(R.id.confirmButton);
         nameEdit = (EditText) findViewById(R.id.sketchuEditText);
