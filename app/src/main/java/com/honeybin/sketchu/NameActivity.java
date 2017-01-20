@@ -40,5 +40,10 @@ public class NameActivity extends AppCompatActivity {
                 startActivityForResult(i, RESULT_OK);
             }
         });
+
+    }
+    @Override
+    public void onBackPressed() {
+        // does nothing;
     }
 }
