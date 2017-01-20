@@ -1,5 +1,6 @@
 package com.honeybin.sketchu;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,10 +19,12 @@ public class SelectTagActivity extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
     List<String> expandableListTitle;
     HashMap<String, List<String>> expandableListDetail;
+    Intent originalIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        originalIntent = getIntent();
         setContentView(R.layout.activity_select_tag);
 
         expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
@@ -33,9 +36,9 @@ public class SelectTagActivity extends AppCompatActivity {
 
             @Override
             public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        expandableListTitle.get(groupPosition) + " List Expanded.",
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),
+//                        expandableListTitle.get(groupPosition) + " List Expanded.",
+//                        Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -43,9 +46,9 @@ public class SelectTagActivity extends AppCompatActivity {
 
             @Override
             public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        expandableListTitle.get(groupPosition) + " List Collapsed.",
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),
+//                        expandableListTitle.get(groupPosition) + " List Collapsed.",
+//                        Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -54,14 +57,21 @@ public class SelectTagActivity extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
-                Toast.makeText(
-                        getApplicationContext(),
-                        expandableListTitle.get(groupPosition)
-                                + " -> "
-                                + expandableListDetail.get(
-                                expandableListTitle.get(groupPosition)).get(
-                                childPosition), Toast.LENGTH_SHORT
-                ).show();
+//                Toast.makeText(
+//                        getApplicationContext(),
+//                        expandableListTitle.get(groupPosition)
+//                                + " -> "
+//                                + expandableListDetail.get(
+//                                expandableListTitle.get(groupPosition)).get(
+//                                childPosition), Toast.LENGTH_SHORT
+//                ).show();
+                Intent i = new Intent(getApplicationContext(), AddEventActivity.class);
+                i.putExtra("choice", expandableListDetail.get(
+                        expandableListTitle.get(groupPosition)).get(
+                        childPosition));
+                setResult(originalIntent.getIntExtra("tag", 0), i);
+                finish();
+//                onActivityResult(1, RESULT_OK, i);
                 return false;
             }
         });

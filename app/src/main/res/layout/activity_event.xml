@@ -165,12 +165,60 @@
         android:background="@drawable/confirmbutton" />
 
     <Button
-        android:text="tags"
+        android:text="pick me"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tagButton"
-        android:layout_above="@+id/confirmButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="77dp" />
+        android:id="@+id/tagButton2"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/tagButton1"
+        android:layout_alignBottom="@+id/tagButton1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/endTimeText"
+        android:layout_toEndOf="@+id/endTimeText"
+        android:background="@android:drawable/button_onoff_indicator_on" />
+
+    <Button
+        android:text="pick me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tagButton3"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        android:layout_above="@+id/backButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="53dp"
+        android:layout_alignRight="@+id/tagButton1"
+        android:layout_alignEnd="@+id/tagButton1"
+        android:background="@android:drawable/editbox_dropdown_dark_frame" />
+
+    <Button
+        android:text="up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tagButton4"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/tagButton3"
+        android:layout_alignBottom="@+id/tagButton3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/tagButton2"
+        android:layout_alignStart="@+id/tagButton2" />
+
+    <Button
+        android:text="pick me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tagButton1"
+        android:layout_marginTop="17dp"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        android:background="@drawable/common_google_signin_btn_text_light"
+        android:layout_below="@+id/detailTxt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

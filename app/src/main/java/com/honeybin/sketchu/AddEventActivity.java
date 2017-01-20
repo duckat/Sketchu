@@ -6,12 +6,14 @@ import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -22,13 +24,15 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
     private Button btnStartTimePicker, btnEndTimePicker;
     private Button addButton;
     private Button backButton;
-    private Button tagButton;
+    private Button tagButton1, tagButton2, tagButton3, tagButton4;
     private int startHour, startMinute;
     private int endHour, endMinute;
     private int mHour, mMinute;
     private EventsDBHelper dbHelper;
     private TextView txtStart, txtEnd;
     private EditText txtName, txtDetail;
+    private String[] choices = {"1", "2", "3", "4"};
+    private String choice1, choice2, choice3, choice4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +43,11 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         btnEndTimePicker = (Button) findViewById(R.id.setEndTimeButton);
         addButton = (Button) findViewById(R.id.confirmButton);
         backButton = (Button) findViewById(R.id.backButton);
-        tagButton = (Button) findViewById(R.id.tagButton);
+        tagButton1 = (Button) findViewById(R.id.tagButton1);
+        tagButton2 = (Button) findViewById(R.id.tagButton2);
+        tagButton3 = (Button) findViewById(R.id.tagButton3);
+        tagButton4 = (Button) findViewById(R.id.tagButton4);
+
 
         txtName = (EditText)findViewById(R.id.nameTxt);
         txtDetail = (EditText) findViewById(R.id.detailTxt);
@@ -50,7 +58,10 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         btnEndTimePicker.setOnClickListener(this);
         addButton.setOnClickListener(this);
         backButton.setOnClickListener(this);
-        tagButton.setOnClickListener(this);
+        tagButton1.setOnClickListener(this);
+        tagButton2.setOnClickListener(this);
+        tagButton3.setOnClickListener(this);
+        tagButton4.setOnClickListener(this);
     }
 
     @Override
@@ -115,10 +126,29 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
             MainActivity.shouldPlay = true;
             finish();
         }
-        if(v == tagButton){
+        if(v == tagButton1){
             MainActivity.shouldPlay = true;
             Intent i = new Intent(getApplicationContext(), SelectTagActivity.class);
-            startActivity(i);
+            i.putExtra("tag", 1);
+            startActivityForResult(i, 1);
+        }
+        if(v == tagButton2){
+            MainActivity.shouldPlay = true;
+            Intent i = new Intent(getApplicationContext(), SelectTagActivity.class);
+            i.putExtra("tag", 2);
+            startActivityForResult(i, 2);
+        }
+        if(v == tagButton3){
+            MainActivity.shouldPlay = true;
+            Intent i = new Intent(getApplicationContext(), SelectTagActivity.class);
+            i.putExtra("tag", 3);
+            startActivityForResult(i, 3);
+        }
+        if(v == tagButton4){
+            MainActivity.shouldPlay = true;
+            Intent i = new Intent(getApplicationContext(), SelectTagActivity.class);
+            i.putExtra("tag", 4);
+            startActivityForResult(i, 4);
         }
     }
 
@@ -137,5 +167,30 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onBackPressed() {
         //does nothing
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Log.d("codes", requestCode + " / " + resultCode);
+
+//        switch(resultCode){
+//            case 1: choice1 = data.getStringExtra("choice"); break;
+//            case 2: choice2 = data.getStringExtra("choice"); break;
+//            case 3: choice3 = data.getStringExtra("choice"); break;
+//            case 4: choice4 = data.getStringExtra("choice"); break;
+//            default: break;
+//        }
+
+        if(resultCode >=1 && resultCode <= 4){
+            choices[resultCode - 1] = data.getStringExtra("choice");
+        }
+
+
+        Toast.makeText(getApplicationContext(), choice1, Toast.LENGTH_SHORT).show();
+        tagButton1.setText(choices[0]);
+        tagButton2.setText(choices[1]);
+        tagButton3.setText(choices[2]);
+        tagButton4.setText(choices[3]);
+
     }
 }
