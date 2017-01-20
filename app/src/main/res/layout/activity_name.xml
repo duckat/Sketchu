@@ -9,7 +9,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.honeybin.sketchu.NameActivity">
+    tools:context="com.honeybin.sketchu.NameActivity"
+    android:elevation="1dp"
+    android:background="@drawable/namebackground">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/talkballoon"
+        android:id="@+id/imageView7"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -20,30 +33,42 @@
         android:id="@+id/confirmButton"
         android:background="@drawable/confirmbutton" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Please type your Sketchu's name"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:id="@+id/editText2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center"
-        android:singleLine="true"
-        style="@style/Widget.AppCompat.AutoCompleteTextView" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/animation_sketchu"
-        android:id="@+id/sketchuPic"
-        android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp" />
+        android:id="@+id/sketchuNamePic"
+        android:layout_below="@+id/imageView7"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/namefield"
+        android:layout_alignTop="@+id/imageView6"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:id="@+id/imageView12" />
+
+    <TextView
+        android:text="What is my name?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:id="@+id/textView"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/nametitle"
+        android:id="@+id/imageView6"
+        android:layout_marginTop="82dp"
+        android:layout_below="@+id/sketchuNamePic"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -51,19 +76,13 @@
         android:inputType="textPersonName"
         android:text="Name"
         android:ems="10"
+        android:id="@+id/sketchuEditText"
         android:layout_alignTop="@+id/imageView6"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/sketchuEditText" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/nametitle"
-        android:layout_marginTop="29dp"
-        android:id="@+id/imageView6"
-        android:layout_below="@+id/sketchuPic"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:background="@android:color/transparent"
+        android:cursorVisible="false"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp" />
 
 </RelativeLayout>

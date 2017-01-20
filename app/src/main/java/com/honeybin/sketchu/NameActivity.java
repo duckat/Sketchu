@@ -27,6 +27,10 @@ public class NameActivity extends AppCompatActivity {
         confirmButton = (Button) findViewById(R.id.confirmButton);
         nameEdit = (EditText) findViewById(R.id.sketchuEditText);
 
+
+        ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuNamePic);
+        ((AnimationDrawable) sketchuMotion.getDrawable()).start();
+
         confirmButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {

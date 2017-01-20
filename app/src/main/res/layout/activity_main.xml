@@ -27,7 +27,7 @@
         android:layout_width="118dp"
         android:layout_height="142dp"
         android:background="@drawable/animation_sketchu"
-        android:id="@+id/sketchuPic"
+        android:id="@+id/sketchuNamePic"
         app:layout_anchorGravity="center_vertical|center_horizontal"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_marginTop="12dp" />

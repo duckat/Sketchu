@@ -78,10 +78,10 @@ public class MainActivity extends AppCompatActivity {
 
         TextView sketchuName = (TextView)findViewById(R.id.sketchuName);
         custom_font = Typeface.createFromAsset(getAssets(), "fonts/rudimentfont.ttf");
-        sketchuName.setTypeface(custom_font, Typeface.BOLD);
+        sketchuName.setTypeface(custom_font);
 
 
-        ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuPic);
+        ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuNamePic);
         ((AnimationDrawable) sketchuMotion.getBackground()).start();
 
         eventButton = (Button) findViewById(R.id.eventButton);
