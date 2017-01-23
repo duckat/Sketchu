@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,15 +28,33 @@ public class MainActivity extends AppCompatActivity {
 
     private Button eventButton;
     private Button foodButton;
+    private ClipDrawable mImageDrawable;
     private static MediaPlayer mp;
     public static boolean shouldPlay = false;
     public boolean startBackground = true;
     private Sketchu mySketchu;
     private HashMap<String, Integer> beanBag;
     private ImageView sketchuImage;
+    public static final int MAX_LEVEL = 10000;
+    public static final int LEVEL_DIFF = 100;
+    public static final int DELAY = 30;
     public static final String myPREFERENCES = "MyPrefs";
     public static final String Name = "nameKey";
     public static Typeface custom_font;
+
+    private int mLevel = 0;
+    private int fromLevel = 0;
+    private int toLevel = 0;
+
+    private Handler mDownHandler = new Handler();
+
+    private Runnable animateDownImage = new Runnable() {
+        @Override
+        public void run() {
+            doTheDownAnimation(fromLevel, toLevel);
+        }
+    };
+
     /*
     public static final String hunger = "hungerKey";
     public static final String love = "loveKey";
@@ -207,15 +227,51 @@ public class MainActivity extends AppCompatActivity {
         mySketchu.update();
 //        Log.d("onresume", mySketchu.getLastUpdate());
 
+
+        ImageView img = (ImageView) findViewById(R.id.progressGauge);
+        mImageDrawable = (ClipDrawable) img.getDrawable();
+        mImageDrawable.setLevel(mySketchu.getHunger());
+
+        /*
+        int temp_level = ((Integer.parseInt(etPercent.getText().toString())) * MAX_LEVEL) / 100;
+
+        if (toLevel == temp_level || temp_level > MAX_LEVEL) {
+            return;
+        }
+        toLevel = (temp_level <= MAX_LEVEL) ? temp_level : toLevel;
+        if (toLevel > fromLevel) {
+
+            // cancel previous process first
+            mUpHandler.removeCallbacks(animateUpImage);
+            MainActivity.this.fromLevel = toLevel;
+
+            mDownHandler.post(animateDownImage);
+        }
+
+        */
+
+        /*
         ProgressBar hungerBar = (ProgressBar) findViewById(R.id.progressBar1);
         ProgressBar loveBar = (ProgressBar) findViewById(R.id.progressBar2);
 
         hungerBar.setProgress(mySketchu.getHunger());
         loveBar.setProgress(mySketchu.getLove());
-
+*/
         Log.d("MainActivity", "onResume");
 //        mp.start();
         resumeBGM();
+    }
+
+    private void doTheDownAnimation(int fromLevel, int toLevel) {
+        //mySketchu.getHunger() -= LEVEL_DIFF;
+        mImageDrawable.setLevel(mLevel);
+        if(mLevel >= toLevel) {
+            mDownHandler.postDelayed(animateDownImage, DELAY);
+
+        } else {
+            mDownHandler.removeCallbacks(animateDownImage);
+            MainActivity.this.fromLevel = toLevel;
+        }
     }
 
     @Override
