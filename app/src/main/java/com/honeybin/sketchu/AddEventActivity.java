@@ -183,10 +183,11 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
 
         if(resultCode >=1 && resultCode <= 4){
             choices[resultCode - 1] = data.getStringExtra("choice");
+            Toast.makeText(getApplicationContext(), "HI + " + choices[resultCode - 1], Toast.LENGTH_SHORT).show();
         }
 
 
-        Toast.makeText(getApplicationContext(), choice1, Toast.LENGTH_SHORT).show();
+
         tagButton1.setText(choices[0]);
         tagButton2.setText(choices[1]);
         tagButton3.setText(choices[2]);

@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 import static com.honeybin.sketchu.R.id.addEventButton;
 import static com.honeybin.sketchu.R.id.backEventButton;
+import static com.honeybin.sketchu.R.id.completeButton;
 import static com.honeybin.sketchu.R.id.eventListView;
 
 public class EventListActivity extends AppCompatActivity {
@@ -26,8 +27,7 @@ public class EventListActivity extends AppCompatActivity {
     private EventCursorAdapter eventListAdapter;
     private EventsDBHelper eventsdb;
     public static ArrayList<Event> eventList = new ArrayList<Event>();
-    private Button addButton;
-    private Button backButton;
+    private Button addButton, backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

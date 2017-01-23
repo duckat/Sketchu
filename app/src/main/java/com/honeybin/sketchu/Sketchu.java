@@ -2,13 +2,6 @@ package com.honeybin.sketchu;
 
 import android.util.Log;
 
-import org.joda.time.DateTime;
-import org.joda.time.Duration;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 /**
  * Sketchu class.
  */
@@ -24,23 +17,24 @@ public class Sketchu {
     private int hunger = 100;
     private int love = 50;
 
-    // intelligence category
+    // intelligent
     private double knowledge = 0.0;
     private double creativity = 0.0;
     private double comprehensibility = 0.0;
-    private double musicalAbility = 0.0;
+    private double precision = 0.0;
 
-    // outer appearance
-    private double appearance = 0.0;
-    private double physicality = 0.0;
+    // skillful
+    private double musicalAbility = 0.0;
+    private double dexterity = 0.0;
     private double fitness = 0.0;
 
     // social category
+    private double appearance = 0.0;
     private double sociability = 0.0;
     private double friendliness = 0.0;
     private double expressiveness = 0.0;
 
-    // mind control
+    // Inner peace
     private double confidence = 0.0;
     private double concentration = 0.0;
     private double sentimentality = 0.0;
@@ -68,14 +62,6 @@ public class Sketchu {
         Log.d("updating", TimeHelper.findTimeDiff(lastUpdate, now) + "");
         lastUpdate = now;
     }
-//
-//    private long findTimeDiff(String original, String current){
-//        DateTime orig = DateTime.parse(original);
-//        DateTime now = DateTime.parse(current);
-//        Duration duration = new Duration(orig, now);
-//        //this part should be getStandardMinutes() for actual production
-//        return duration.getStandardSeconds();
-//    }
 
     private void naturalDecay(long timePassed){
         hunger -= timePassed;
@@ -117,8 +103,8 @@ public class Sketchu {
         this.appearance = this.appearance + this.minToHour(time);
     }
 
-    public void incPhysicality(double time) {
-        this.physicality = this.physicality + this.minToHour(time);
+    public void incDexterity(double time) {
+        this.dexterity = this.dexterity + this.minToHour(time);
     }
     public void incFitness(double time) {
         this.fitness = this.fitness + this.minToHour(time);
@@ -252,12 +238,12 @@ public class Sketchu {
         this.appearance = appearance;
     }
 
-    public double getPhysicality() {
-        return physicality;
+    public double getDexterity() {
+        return dexterity;
     }
 
-    public void setPhysicality(double physicality) {
-        this.physicality = physicality;
+    public void setDexterity(double dexterity) {
+        this.dexterity = dexterity;
     }
 
     public double getFitness() {
