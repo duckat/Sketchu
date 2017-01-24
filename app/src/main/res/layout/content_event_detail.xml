@@ -11,7 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.honeybin.sketchu.EventDetailActivity"
-    tools:showIn="@layout/activity_event_detail">
+    tools:showIn="@layout/activity_event_detail"
+    android:background="@drawable/listbackgroundtwo">
 
     <EditText
         android:layout_width="wrap_content"
