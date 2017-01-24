@@ -19,12 +19,13 @@
         android:weightSum="1"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true">
 
         <ListView
             android:layout_width="match_parent"
-            android:id="@+id/eventListView"
-            android:layout_height="460dp" />
+            android:layout_height="449dp"
+            android:id="@+id/eventListView" />
 
     </LinearLayout>
 
@@ -35,15 +36,15 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_width="120dp"
-        android:layout_height="53dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/backEventButton"
         android:background="@drawable/backbutton"
         android:layout_weight="1"
-        android:layout_width="120dp"
-        android:layout_height="53dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
