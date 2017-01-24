@@ -73,8 +73,7 @@
         android:layout_gravity="center"
         android:layout_below="@+id/progressBar2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="34dp">
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -89,5 +88,23 @@
             android:src="@drawable/clip_source" />
 
     </FrameLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/progressbarlove"
+        android:id="@+id/imageLoveBar"
+        android:layout_below="@+id/progressBar2"
+        android:layout_alignRight="@+id/sketchuName"
+        android:layout_alignEnd="@+id/sketchuName" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/clip_source_love"
+        android:id="@+id/imageLove"
+        android:layout_below="@+id/progressBar2"
+        android:layout_alignLeft="@+id/imageLoveBar"
+        android:layout_alignStart="@+id/imageLoveBar" />
 
 </RelativeLayout>

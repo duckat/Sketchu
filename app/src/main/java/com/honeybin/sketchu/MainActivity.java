@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         mImageDrawable = (ClipDrawable) img.getDrawable();
         mImageDrawable.setLevel(0);
 
+
         TextView sketchuName = (TextView)findViewById(R.id.sketchuName);
         custom_font = Typeface.createFromAsset(getAssets(), "fonts/rudimentfont.ttf");
         sketchuName.setTypeface(custom_font);
