@@ -2,4 +2,4 @@
 <clip xmlns:android="http://schemas.android.com/apk/res/android"
     android:clipOrientation="horizontal"
     android:drawable="@drawable/progressgaugehunger"
-    android:gravity="bottom" />
+    android:gravity="left" />

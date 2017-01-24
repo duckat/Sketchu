@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private HashMap<String, Integer> beanBag;
     private ImageView sketchuImage;
     public static final int MAX_LEVEL = 10000;
-    public static final int LEVEL_DIFF = 100;
+    public static final int LEVEL_DIFF = 50;
     public static final int DELAY = 30;
     public static final String myPREFERENCES = "MyPrefs";
     public static final String Name = "nameKey";
@@ -54,34 +54,21 @@ public class MainActivity extends AppCompatActivity {
             doTheDownAnimation(fromLevel, toLevel);
         }
     };
+    private Handler mUpHandler = new Handler();
+    private Runnable animateUpImage = new Runnable() {
 
-    /*
-    public static final String hunger = "hungerKey";
-    public static final String love = "loveKey";
-    public static final String knowledge = "knowledgeKey";
-    public static final String creativity = "creativityKey";
-    public static final String comprehensibility = "comprehensibilityKey";
-    public static final String musicalAbility = "musicalKey";
-    public static final String appearance = "appearanceKey";
-    public static final String physicality = "physicalKey";
-    public static final String fitness = "fitnessKey";
-    public static final String sociability = "sociabilityKey";
-    public static final String friendliness = "friendlinessKey";
-    public static final String expressiveness = "expressivenessKey";
-    public static final String confidence = "confidenceKey";
-    public static final String concentration = "concentrationKey";
-    public static final String sentimentality = "sentimentalityKey";
-    public static final String shoppingImpulsiveness = "shoppingImpulsivenessKey";
-    public static final String otakuness = "otakunessKey";
-    */
+        @Override
+        public void run() {
+            doTheUpAnimation(fromLevel, toLevel);
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mp = MediaPlayer.create(this, R.raw.backgroundmusic);
-
-
         mp.setLooping(true);
 
         SharedPreferences sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
@@ -94,7 +81,9 @@ public class MainActivity extends AppCompatActivity {
         beanBag.put("Study Bean", 3);
         beanBag.put("Workout Bean", 2);
 
-
+        ImageView img = (ImageView) findViewById(R.id.imageView1);
+        mImageDrawable = (ClipDrawable) img.getDrawable();
+        mImageDrawable.setLevel(0);
 
         TextView sketchuName = (TextView)findViewById(R.id.sketchuName);
         custom_font = Typeface.createFromAsset(getAssets(), "fonts/rudimentfont.ttf");
@@ -197,27 +186,7 @@ public class MainActivity extends AppCompatActivity {
     private void createSketchu(String name){
         mySketchu = new Sketchu(name);
     }
-/*
-    private void loadSketchu() {
-        sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
 
-        sketchuData.getInt("hunger", 0);
-        sketchuData.getInt("cleanliness", 0);
-        sketchuData.getInt("drowsiness", 0);
-        sketchuData.getInt("knowledge", 0);
-        sketchuData.getInt("", 0);
-        sketchuData.getInt("", 0);
-        sketchuData.getInt("", 0);
-        sketchuData.getInt("", 0);
-        sketchuData.getInt("", 0);
-        sketchuData.getInt("", 0);
-        sketchuData.getInt("", 0);
-        sketchuData.getInt("", 0);
-        sketchuData.getInt("", 0);
-        mySketchu = new Sketchu();
-
-    }
-*/
 
 
     @Override
@@ -226,51 +195,59 @@ public class MainActivity extends AppCompatActivity {
 //        Log.d("onresume", mySketchu.getLastUpdate());
         mySketchu.update();
 //        Log.d("onresume", mySketchu.getLastUpdate());
+        onClickOk();
 
+        Log.d("MainActivity", "onResume");
+        resumeBGM();
+    }
 
-        ImageView img = (ImageView) findViewById(R.id.progressGauge);
-        mImageDrawable = (ClipDrawable) img.getDrawable();
-        mImageDrawable.setLevel(mySketchu.getHunger());
+    private void doTheUpAnimation(int fromLevel, int toLevel) {
+        mLevel += LEVEL_DIFF;
+        mImageDrawable.setLevel(mLevel);
+        if (mLevel <= toLevel) {
+            Log.d("DUA", "1st cond " + mLevel + " / " + toLevel);
+            mUpHandler.postDelayed(animateUpImage, DELAY);
+        } else {
+            mUpHandler.removeCallbacks(animateUpImage);
+            Log.d("DUA", "2nd cond " + mLevel + " / " + toLevel);
+            MainActivity.this.fromLevel = toLevel;
+        }
+    }
 
-        /*
-        int temp_level = ((Integer.parseInt(etPercent.getText().toString())) * MAX_LEVEL) / 100;
+    private void doTheDownAnimation(int fromLevel, int toLevel) {
+        mLevel -= LEVEL_DIFF;
+        mImageDrawable.setLevel(mLevel);
+        if (mLevel >= toLevel) {
+            Log.d("DDA", "1st cond " + mLevel + " / " + toLevel);
+            mDownHandler.postDelayed(animateDownImage, DELAY);
+        } else {
+            Log.d("DDA", "2nd cond " + mLevel + " / " + toLevel);
+            mDownHandler.removeCallbacks(animateDownImage);
+            MainActivity.this.fromLevel = toLevel;
+        }
+    }
+    public void onClickOk() {
+        Log.d("onclickok", "enter");
+        int temp_level = (mySketchu.getHunger() * MAX_LEVEL) / 100;
 
         if (toLevel == temp_level || temp_level > MAX_LEVEL) {
             return;
         }
         toLevel = (temp_level <= MAX_LEVEL) ? temp_level : toLevel;
         if (toLevel > fromLevel) {
-
             // cancel previous process first
+            Log.d("onclickok", "to > from");
+            mDownHandler.removeCallbacks(animateDownImage);
+            MainActivity.this.fromLevel = toLevel;
+
+            mUpHandler.post(animateUpImage);
+        } else {
+            // cancel previous process first
+            Log.d("onclickok", "else");
             mUpHandler.removeCallbacks(animateUpImage);
             MainActivity.this.fromLevel = toLevel;
 
             mDownHandler.post(animateDownImage);
-        }
-
-        */
-
-        /*
-        ProgressBar hungerBar = (ProgressBar) findViewById(R.id.progressBar1);
-        ProgressBar loveBar = (ProgressBar) findViewById(R.id.progressBar2);
-
-        hungerBar.setProgress(mySketchu.getHunger());
-        loveBar.setProgress(mySketchu.getLove());
-*/
-        Log.d("MainActivity", "onResume");
-//        mp.start();
-        resumeBGM();
-    }
-
-    private void doTheDownAnimation(int fromLevel, int toLevel) {
-        //mySketchu.getHunger() -= LEVEL_DIFF;
-        mImageDrawable.setLevel(mLevel);
-        if(mLevel >= toLevel) {
-            mDownHandler.postDelayed(animateDownImage, DELAY);
-
-        } else {
-            mDownHandler.removeCallbacks(animateDownImage);
-            MainActivity.this.fromLevel = toLevel;
         }
     }
 

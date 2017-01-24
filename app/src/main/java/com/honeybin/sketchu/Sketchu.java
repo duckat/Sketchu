@@ -14,7 +14,7 @@ public class Sketchu {
     private String name = "Babichu";
 
     ///essential stats
-    private int hunger = 100;
+    private int hunger = 50;
     private int love = 50;
 
     // intelligent

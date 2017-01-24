@@ -23,8 +23,8 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="449dp"
-            android:id="@+id/eventListView" />
+            android:id="@+id/eventListView"
+            android:layout_height="460dp" />
 
     </LinearLayout>
 
