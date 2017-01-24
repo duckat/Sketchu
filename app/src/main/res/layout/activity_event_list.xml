@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.honeybin.sketchu.EventListActivity"
     style="@style/AppTheme.PopupOverlay"
-    android:background="@drawable/listbackground">
+    android:background="@drawable/listbackgroundtwo">
 
     <LinearLayout
         android:orientation="vertical"
