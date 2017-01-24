@@ -13,43 +13,60 @@
     tools:context="com.honeybin.sketchu.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <ImageView
+        android:layout_height="110dp"
+        app:srcCompat="@drawable/interfacegaugefourtwo"
+        android:id="@+id/chalkBoard"
+        android:layout_width="match_parent" />
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:progressDrawable="@drawable/customprogressbar"
-        android:layout_width="match_parent"
+
+    <FrameLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBar1"
-        android:layout_below="@+id/sketchuAge"
+        android:layout_gravity="center"
+        android:id="@+id/loveFrame"
+        android:layout_below="@+id/hungerFrame"
+        android:paddingTop="3dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="13dp" />
+        android:layout_alignParentStart="true">
 
-    <TextView
-        android:text="Name"
+        <ImageView
+            android:id="@+id/loveBarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/progressbarlove" />
+
+        <ImageView
+            android:id="@+id/loveBarContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/love_clip_source" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
-
-        android:id="@+id/sketchuName"
-        android:fontFamily="casual"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:id="@+id/hungerFrame"
+        android:paddingTop="3dp"
+        android:layout_below="@+id/chalkBoard"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:layout_width="330dp" />
+        android:layout_alignParentStart="true">
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:progressDrawable="@drawable/customprogressbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/progressBar2"
-        android:layout_marginTop="14dp"
-        android:layout_below="@+id/progressBar1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <ImageView
+            android:id="@+id/hungerBarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/progressbarhunger" />
+
+        <ImageView
+            android:id="@+id/hungerBarContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hunger_clip_source" />
+
+    </FrameLayout>
 
     <TextView
         android:text="Age"
@@ -60,51 +77,25 @@
         android:id="@+id/sketchuAge"
         android:fontFamily="casual"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:layout_marginRight="27dp"
-        android:layout_marginEnd="27dp"
+        android:layout_alignTop="@+id/sketchuName"
+        android:layout_alignRight="@+id/sketchuName"
+        android:paddingRight="10dp"
+        android:textAlignment="textEnd"
+        android:gravity="end" />
+
+    <TextView
+        android:text="Name"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+
+        android:id="@+id/sketchuName"
+        android:fontFamily="casual"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:layout_width="330dp"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/sketchuName"
-        android:layout_alignEnd="@+id/sketchuName" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="12dp" />
 
-
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_below="@+id/progressBar2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/progressbarhunger" />
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/clip_source" />
-
-    </FrameLayout>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/progressbarlove"
-        android:id="@+id/imageLoveBar"
-        android:layout_below="@+id/progressBar2"
-        android:layout_alignRight="@+id/sketchuName"
-        android:layout_alignEnd="@+id/sketchuName" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/clip_source_love"
-        android:id="@+id/imageLove"
-        android:layout_below="@+id/progressBar2"
-        android:layout_alignLeft="@+id/imageLoveBar"
-        android:layout_alignStart="@+id/imageLoveBar" />
 
 </RelativeLayout>

@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
@@ -28,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button eventButton;
     private Button foodButton;
-    private ClipDrawable mImageDrawable;
+    private ClipDrawable mImageDrawableHunger, mImageDrawableLove;
     private static MediaPlayer mp;
     public static boolean shouldPlay = false;
     public boolean startBackground = true;
@@ -42,24 +40,41 @@ public class MainActivity extends AppCompatActivity {
     public static final String Name = "nameKey";
     public static Typeface custom_font;
 
-    private int mLevel = 0;
-    private int fromLevel = 0;
-    private int toLevel = 0;
+    private int mLevelHunger, mLevelLove = 0;
+    private int fromLevelHunger, fromLevelLove = 0;
+    private int toLevelHunger, toLevelLove = 0;
 
     private Handler mDownHandler = new Handler();
 
-    private Runnable animateDownImage = new Runnable() {
+    private Runnable animateDownImageHunger = new Runnable() {
         @Override
         public void run() {
-            doTheDownAnimation(fromLevel, toLevel);
+            doTheDownAnimationHunger(fromLevelHunger, toLevelHunger);
+//            doTheDownAnimationLove(fromLevelLove, toLevelLove);
+        }
+    };
+    private Runnable animateDownImageLove = new Runnable() {
+        @Override
+        public void run() {
+//            doTheDownAnimationHunger(fromLevelHunger, toLevelHunger);
+            doTheDownAnimationLove(fromLevelLove, toLevelLove);
         }
     };
     private Handler mUpHandler = new Handler();
-    private Runnable animateUpImage = new Runnable() {
+    private Runnable animateUpImageHunger = new Runnable() {
 
         @Override
         public void run() {
-            doTheUpAnimation(fromLevel, toLevel);
+            doTheUpAnimationHunger(fromLevelHunger, toLevelHunger);
+//            doTheUpAnimationLove(fromLevelLove, toLevelLove);
+        }
+    };
+    private Runnable animateUpImageLove = new Runnable() {
+
+        @Override
+        public void run() {
+//            doTheUpAnimationHunger(fromLevelHunger, toLevelHunger);
+            doTheUpAnimationLove(fromLevelLove, toLevelLove);
         }
     };
 
@@ -81,10 +96,13 @@ public class MainActivity extends AppCompatActivity {
         beanBag.put("Study Bean", 3);
         beanBag.put("Workout Bean", 2);
 
-        ImageView img = (ImageView) findViewById(R.id.imageView1);
-        mImageDrawable = (ClipDrawable) img.getDrawable();
-        mImageDrawable.setLevel(0);
-
+        //initializing drawables for bars
+        ImageView img = (ImageView) findViewById(R.id.hungerBarContent);
+        mImageDrawableHunger = (ClipDrawable) img.getDrawable();
+        mImageDrawableHunger.setLevel(0);
+        ImageView img2 = (ImageView) findViewById(R.id.loveBarContent);
+        mImageDrawableLove = (ClipDrawable) img2.getDrawable();
+        mImageDrawableLove.setLevel(0);
 
         TextView sketchuName = (TextView)findViewById(R.id.sketchuName);
         custom_font = Typeface.createFromAsset(getAssets(), "fonts/rudimentfont.ttf");
@@ -202,53 +220,105 @@ public class MainActivity extends AppCompatActivity {
         resumeBGM();
     }
 
-    private void doTheUpAnimation(int fromLevel, int toLevel) {
-        mLevel += LEVEL_DIFF;
-        mImageDrawable.setLevel(mLevel);
-        if (mLevel <= toLevel) {
-            Log.d("DUA", "1st cond " + mLevel + " / " + toLevel);
-            mUpHandler.postDelayed(animateUpImage, DELAY);
+    private void doTheUpAnimationHunger(int fromLevel, int toLevel) {
+        mLevelHunger += LEVEL_DIFF;
+        mImageDrawableHunger.setLevel(mLevelHunger);
+        if (mLevelHunger <= toLevel) {
+            Log.d("DUA", "1st cond " + mLevelHunger + " / " + toLevel);
+            mUpHandler.postDelayed(animateUpImageHunger, DELAY);
         } else {
-            mUpHandler.removeCallbacks(animateUpImage);
-            Log.d("DUA", "2nd cond " + mLevel + " / " + toLevel);
-            MainActivity.this.fromLevel = toLevel;
+            mUpHandler.removeCallbacks(animateUpImageHunger);
+            Log.d("DUA", "2nd cond " + mLevelHunger + " / " + toLevel);
+            MainActivity.this.fromLevelHunger = toLevel;
+        }
+    }
+    private void doTheUpAnimationLove(int fromLevel, int toLevel) {
+        mLevelLove += LEVEL_DIFF;
+        mImageDrawableLove.setLevel(mLevelLove);
+        if (mLevelLove <= toLevel) {
+            Log.d("DUA", "1st cond " + mLevelLove + " / " + toLevel);
+            mUpHandler.postDelayed(animateUpImageLove, DELAY);
+        } else {
+            mUpHandler.removeCallbacks(animateUpImageLove);
+            Log.d("DUA", "2nd cond " + mLevelLove+ " / " + toLevel);
+            MainActivity.this.fromLevelLove = toLevel;
         }
     }
 
-    private void doTheDownAnimation(int fromLevel, int toLevel) {
-        mLevel -= LEVEL_DIFF;
-        mImageDrawable.setLevel(mLevel);
-        if (mLevel >= toLevel) {
-            Log.d("DDA", "1st cond " + mLevel + " / " + toLevel);
-            mDownHandler.postDelayed(animateDownImage, DELAY);
+    private void doTheDownAnimationHunger(int fromLevel, int toLevel) {
+        mLevelHunger -= LEVEL_DIFF;
+        mImageDrawableHunger.setLevel(mLevelHunger);
+        if (mLevelHunger >= toLevel) {
+            Log.d("DDA", "1st cond " + mLevelHunger + " / " + toLevel);
+            mDownHandler.postDelayed(animateDownImageHunger, DELAY);
         } else {
-            Log.d("DDA", "2nd cond " + mLevel + " / " + toLevel);
-            mDownHandler.removeCallbacks(animateDownImage);
-            MainActivity.this.fromLevel = toLevel;
+            Log.d("DDA", "2nd cond " + mLevelHunger + " / " + toLevel);
+            mDownHandler.removeCallbacks(animateDownImageHunger);
+            MainActivity.this.fromLevelHunger = toLevel;
         }
     }
+
+    private void doTheDownAnimationLove(int fromLevel, int toLevel) {
+        mLevelLove -= LEVEL_DIFF;
+        mImageDrawableLove.setLevel(mLevelLove);
+        if (mLevelLove >= toLevel) {
+            Log.d("DDA", "1st cond " + mLevelLove + " / " + toLevel);
+            mDownHandler.postDelayed(animateDownImageLove, DELAY);
+        } else {
+            Log.d("DDA", "2nd cond " + mLevelLove + " / " + toLevel);
+            mDownHandler.removeCallbacks(animateDownImageLove);
+            MainActivity.this.fromLevelLove = toLevel;
+        }
+    }
+
     public void onClickOk() {
         Log.d("onclickok", "enter");
-        int temp_level = (mySketchu.getHunger() * MAX_LEVEL) / 100;
+        int tempHunger = (mySketchu.getHunger() * MAX_LEVEL) / 100;
+        int tempLove = (mySketchu.getLove() * MAX_LEVEL) / 100;
+        drawHunger(tempHunger);
+        drawLove(tempLove);
+    }
 
-        if (toLevel == temp_level || temp_level > MAX_LEVEL) {
+    public void drawHunger(int tempHunger){
+        if (toLevelHunger == tempHunger || tempHunger > MAX_LEVEL) {
             return;
         }
-        toLevel = (temp_level <= MAX_LEVEL) ? temp_level : toLevel;
-        if (toLevel > fromLevel) {
+        toLevelHunger = (tempHunger <= MAX_LEVEL) ? tempHunger : toLevelHunger;
+        if (toLevelHunger > fromLevelHunger) {
             // cancel previous process first
             Log.d("onclickok", "to > from");
-            mDownHandler.removeCallbacks(animateDownImage);
-            MainActivity.this.fromLevel = toLevel;
+            mDownHandler.removeCallbacks(animateDownImageHunger);
+            MainActivity.this.fromLevelHunger = toLevelHunger;
 
-            mUpHandler.post(animateUpImage);
+            mUpHandler.post(animateUpImageHunger);
         } else {
             // cancel previous process first
             Log.d("onclickok", "else");
-            mUpHandler.removeCallbacks(animateUpImage);
-            MainActivity.this.fromLevel = toLevel;
+            mUpHandler.removeCallbacks(animateUpImageHunger);
+            MainActivity.this.fromLevelHunger = toLevelHunger;
 
-            mDownHandler.post(animateDownImage);
+            mDownHandler.post(animateDownImageHunger);
+        }
+    }
+    public void drawLove(int tempLove){
+        if (toLevelLove == tempLove || tempLove > MAX_LEVEL) {
+            return;
+        }
+        toLevelLove = (tempLove <= MAX_LEVEL) ? tempLove : toLevelLove;
+        if (toLevelLove > fromLevelLove) {
+            // cancel previous process first
+            Log.d("onclickok", "to > from");
+            mDownHandler.removeCallbacks(animateDownImageLove);
+            MainActivity.this.fromLevelLove = toLevelLove;
+
+            mUpHandler.post(animateUpImageLove);
+        } else {
+            // cancel previous process first
+            Log.d("onclickok", "else");
+            mUpHandler.removeCallbacks(animateUpImageLove);
+            MainActivity.this.fromLevelLove = toLevelLove;
+
+            mDownHandler.post(animateDownImageLove);
         }
     }
 
