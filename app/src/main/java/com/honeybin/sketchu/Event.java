@@ -84,6 +84,14 @@ public class Event {
         return this.detail;
     }
 
+    public String getTagOne() {return this.tagOne;}
+
+    public String getTagTwo() {return this.tagTwo;}
+
+    public String getTagThree() {return this.tagThree;}
+
+    public String getTagFour() {return this.tagFour;}
+
     public String toString() {
         return this.name;
     }

@@ -76,6 +76,18 @@ public class EventsDBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public Event getEvent(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(EVENTS_TABLE_NAME, new String[] { EVENTS_COLUMN_NAME,
+                        EVENTS_COLUMN_START_TIME, EVENTS_COLUMN_END_TIME, EVENTS_COLUMN_DETAIL, EVENTS_COLUMN_TAG_ONE,
+        EVENTS_COLUMN_TAG_TWO, EVENTS_COLUMN_TAG_THREE, EVENTS_COLUMN_TAG_FOUR}, EVENTS_COLUMN_ID + "=?",
+                new String[] { String.valueOf(id) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+        Event event = new Event(cursor.getString(0),
+                cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),cursor.getString(7));
+        return event;
+    }
     public Integer deleteEvent (long id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("events", "_id = ? ",

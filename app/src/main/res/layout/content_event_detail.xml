@@ -71,4 +71,50 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="TagThree"
+        android:ems="10"
+        android:layout_below="@+id/tagOneText"
+        android:layout_alignRight="@+id/tagOneText"
+        android:layout_alignEnd="@+id/tagOneText"
+        android:layout_marginTop="25dp"
+        android:id="@+id/tagThreeText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="TagTwo"
+        android:ems="10"
+        android:layout_alignTop="@+id/tagOneText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/tagTwoText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="TagOne"
+        android:ems="10"
+        android:layout_marginTop="35dp"
+        android:id="@+id/tagOneText"
+        android:layout_below="@+id/editText3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="TagFour"
+        android:ems="10"
+        android:layout_alignTop="@+id/tagThreeText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/tagFourText" />
+
 </RelativeLayout>

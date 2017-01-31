@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class EventDetailActivity extends AppCompatActivity {
@@ -22,6 +23,10 @@ public class EventDetailActivity extends AppCompatActivity {
     private EditText startTimeText;
     private EditText endTimeText;
     private EditText detailEditText;
+    private TextView tagOneText;
+    private TextView tagTwoText;
+    private TextView tagThreeText;
+    private TextView tagFourText;
     private long id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +41,31 @@ public class EventDetailActivity extends AppCompatActivity {
         String endTime = i.getExtras().getString("endTime");
         int duration = i.getExtras().getInt("duration");
         String detail = i.getExtras().getString("detail");
+        String tagOne = i.getExtras().getString("tagOne");
+        String tagTwo = i.getExtras().getString("tagTwo");
+        String tagThree = i.getExtras().getString("tagThree");
+        String tagFour = i.getExtras().getString("tagFour");
+
         id = i.getExtras().getInt("id");
 
         nameEditText = (EditText) findViewById(R.id.editText4);
         startTimeText = (EditText) findViewById(R.id.startText);
         endTimeText = (EditText) findViewById(R.id.endText);
         detailEditText = (EditText) findViewById(R.id.editText3);
+        tagOneText = (TextView) findViewById(R.id.tagOneText);
+        tagTwoText = (TextView) findViewById(R.id.tagTwoText);
+        tagThreeText = (TextView) findViewById(R.id.tagThreeText);
+        tagFourText = (TextView) findViewById(R.id.tagFourText);
+
 
         nameEditText.setText(name);
         startTimeText.setText(startTime);
         endTimeText.setText(endTime);
         detailEditText.setText(detail);
+        tagOneText.setText(tagOne);
+        tagTwoText.setText(tagTwo);
+        tagThreeText.setText(tagThree);
+        tagFourText.setText(tagFour);
 
         /*
         nameEditText.setText(name, EditText.BufferType.EDITABLE);

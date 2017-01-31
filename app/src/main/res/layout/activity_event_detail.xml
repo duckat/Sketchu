@@ -26,6 +26,7 @@
         app:elevation="7dp"
         app:layout_anchorGravity="bottom|center_horizontal" />
 
-    <include layout="@layout/content_event_detail" />
+    <include layout="@layout/content_event_detail"
+        android:id="@+id/include2" />
 
 </android.support.design.widget.CoordinatorLayout>

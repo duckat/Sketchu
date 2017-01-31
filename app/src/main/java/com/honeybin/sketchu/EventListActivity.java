@@ -81,6 +81,10 @@ public class EventListActivity extends AppCompatActivity {
                 i.putExtra("startTime", e.getStartTime());
                 i.putExtra("endTime", e.getEndTime());
                 i.putExtra("detail", e.getDetail());
+                i.putExtra("tagOne", e.getTagOne());
+                i.putExtra("tagTwo", e.getTagTwo());
+                i.putExtra("tagThree", e.getTagThree());
+                i.putExtra("tagFour", e.getTagFour());
                 i.putExtra("id", row_id);
 
                 startActivityForResult(i, RESULT_OK);
