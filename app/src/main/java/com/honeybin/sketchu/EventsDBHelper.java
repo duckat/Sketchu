@@ -18,6 +18,10 @@ public class EventsDBHelper extends SQLiteOpenHelper {
     public static final String EVENTS_COLUMN_NAME = "name";
     public static final String EVENTS_COLUMN_START_TIME = "start_time";
     public static final String EVENTS_COLUMN_END_TIME = "end_time";
+    public static final String EVENTS_COLUMN_TAG_ONE = "tag_one";
+    public static final String EVENTS_COLUMN_TAG_TWO = "tag_two";
+    public static final String EVENTS_COLUMN_TAG_THREE = "tag_three";
+    public static final String EVENTS_COLUMN_TAG_FOUR = "tag_four";
     //public static final String EVENTS_COLUMN_DURATION_MIN = "duration_min";
     public static final String EVENTS_COLUMN_DETAIL = "detail";
     private HashMap hp;
@@ -30,7 +34,7 @@ public class EventsDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(
           "create table events " +
-                  "(_id integer primary key autoincrement, name text, start_time text, end_time text, detail text)"
+                  "(_id integer primary key autoincrement, name text, start_time text, end_time text, detail text, tag_one text, tag_two text, tag_three text, tag_four text)"
         );
     }
 
@@ -53,6 +57,21 @@ public class EventsDBHelper extends SQLiteOpenHelper {
         contentvalues.put("start_time", startTime);
         contentvalues.put("end_time", endTime);
         contentvalues.put("detail", detail);
+        db.insert("events", null, contentvalues);
+        return true;
+    }
+
+    public boolean insertEvent (String name, String startTime, String endTime, String detail, String tagOne, String tagTwo, String tagThree, String tagFour) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentvalues = new ContentValues();
+        contentvalues.put("name", name);
+        contentvalues.put("start_time", startTime);
+        contentvalues.put("end_time", endTime);
+        contentvalues.put("detail", detail);
+        contentvalues.put("tag_one",tagOne);
+        contentvalues.put("tag_two", tagTwo);
+        contentvalues.put("tag_three", tagThree);
+        contentvalues.put("tag_four", tagFour);
         db.insert("events", null, contentvalues);
         return true;
     }
@@ -107,7 +126,11 @@ public class EventsDBHelper extends SQLiteOpenHelper {
             String startTime = res.getString(res.getColumnIndex(EVENTS_COLUMN_START_TIME));
             String endTime = res.getString(res.getColumnIndex(EVENTS_COLUMN_END_TIME));
             String detail = res.getString(res.getColumnIndex(EVENTS_COLUMN_DETAIL));
-            Event e = new Event(name, startTime, endTime, detail);
+            String tagOne = res.getString(res.getColumnIndex(EVENTS_COLUMN_TAG_ONE));
+            String tagTwo = res.getString(res.getColumnIndex(EVENTS_COLUMN_TAG_TWO));
+            String tagThree = res.getString(res.getColumnIndex(EVENTS_COLUMN_TAG_THREE));
+            String tagFour = res.getString(res.getColumnIndex(EVENTS_COLUMN_TAG_FOUR));
+            Event e = new Event(name, startTime, endTime, detail, tagOne, tagTwo, tagThree, tagFour);
             events_list.add(e);
             res.moveToNext();
         }

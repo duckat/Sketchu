@@ -15,6 +15,24 @@ public class Event {
     private int durationMin;
     private String startTime, endTime;
     private String detail;
+    private String tagOne;
+    private String tagTwo;
+    private String tagThree;
+    private String tagFour;
+
+
+    public Event(String name, String startTime, String endTime, String detail, String tagOne, String tagTwo, String tagThree, String tagFour) {
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.detail = detail;
+        this.tagOne = tagOne;
+        this.tagTwo = tagTwo;
+        this.tagThree = tagThree;
+        this.tagFour = tagFour;
+    }
+
+
 
     public Event(String name, int startHour, int startMinute, int endHour, int endMinute, String exp) {
         this.id = num;
