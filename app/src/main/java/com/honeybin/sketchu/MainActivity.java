@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.backgroundmusic);
         mp.setLooping(true);
 
-        SharedPreferences sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
+        final SharedPreferences sketchuData = getSharedPreferences("Sketchu", MODE_PRIVATE);
 
         String sketchuTempName = sketchuData.getString(Name, "Name undefined");
 
@@ -109,8 +109,25 @@ public class MainActivity extends AppCompatActivity {
         sketchuName.setTypeface(custom_font);
 
 
-        ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuNamePic);
+        final ImageView sketchuMotion = (ImageView) findViewById(R.id.sketchuNamePic);
         ((AnimationDrawable) sketchuMotion.getBackground()).start();
+
+/*
+        sketchuMotion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Handler handler = new Handler();;
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                }, 500);
+            }
+        });
+
+*/
+
 
         eventButton = (Button) findViewById(R.id.eventButton);
 

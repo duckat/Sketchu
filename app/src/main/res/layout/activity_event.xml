@@ -15,14 +15,15 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/interfacegaugeaddevent"
-        android:id="@+id/imageView12"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        app:srcCompat="@drawable/interfacegaugeaddeventtwo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/tagButton2"
-        android:layout_alignParentTop="true" />
+        android:id="@+id/imageView8"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -40,7 +41,8 @@
         android:fontFamily="casual"
         android:hint="Tell me more @v@"
         android:textColorHint="@color/colorPrimaryDark"
-        />
+        android:layout_marginTop="-2"
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -89,63 +91,6 @@
         android:background="@drawable/confirmbutton" />
 
     <Button
-        android:text="pick me"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tagButton2"
-        android:fontFamily="casual"
-        android:textSize="18sp"
-        android:layout_alignBaseline="@+id/tagButton1"
-        android:layout_alignBottom="@+id/tagButton1"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/endTimeText"
-        android:layout_toEndOf="@+id/endTimeText"
-        android:background="@android:drawable/button_onoff_indicator_on" />
-
-    <Button
-        android:text="pick me"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tagButton3"
-        android:fontFamily="casual"
-        android:textSize="18sp"
-        android:layout_above="@+id/backButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="53dp"
-        android:layout_alignRight="@+id/tagButton1"
-        android:layout_alignEnd="@+id/tagButton1"
-        android:background="@android:drawable/editbox_dropdown_dark_frame" />
-
-    <Button
-        android:text="up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tagButton4"
-        android:fontFamily="casual"
-        android:textSize="18sp"
-        android:layout_alignBaseline="@+id/tagButton3"
-        android:layout_alignBottom="@+id/tagButton3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/tagButton2"
-        android:layout_alignStart="@+id/tagButton2" />
-
-    <Button
-        android:text="pick me"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tagButton1"
-        android:layout_marginTop="17dp"
-        android:fontFamily="casual"
-        android:textSize="18sp"
-        android:background="@drawable/common_google_signin_btn_text_light"
-        android:layout_below="@+id/detailTxt"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/setEndTimeButton"
@@ -173,12 +118,13 @@
         android:layout_below="@+id/imageView3"
         android:layout_alignRight="@+id/backButton"
         android:layout_alignEnd="@+id/backButton"
-        android:layout_marginTop="21dp" />
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="0dp" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/newscheduletext"
+        app:srcCompat="@drawable/newscheduletextupdate"
         android:id="@+id/imageView10"
         android:layout_above="@+id/nameTxt"
         android:layout_centerHorizontal="true" />
@@ -227,5 +173,44 @@
         android:layout_gravity="start"
         android:layout_below="@+id/startTimeText"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailTxt"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tagButton1"
+        android:background="@drawable/hashbutton" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tagButton1"
+        android:layout_alignRight="@+id/tagButton1"
+        android:layout_alignEnd="@+id/tagButton1"
+        android:id="@+id/tagButton2"
+        android:background="@drawable/hashbutton" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tagButton2"
+        android:layout_alignRight="@+id/tagButton2"
+        android:layout_alignEnd="@+id/tagButton2"
+        android:id="@+id/tagButton3"
+        android:background="@drawable/hashbutton" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tagButton3"
+        android:layout_alignLeft="@+id/tagButton3"
+        android:layout_alignStart="@+id/tagButton3"
+        android:id="@+id/button4"
+        android:background="@drawable/hashbutton" />
 
 </RelativeLayout>

@@ -22,7 +22,6 @@ public class EventsDBHelper extends SQLiteOpenHelper {
     public static final String EVENTS_COLUMN_TAG_TWO = "tag_two";
     public static final String EVENTS_COLUMN_TAG_THREE = "tag_three";
     public static final String EVENTS_COLUMN_TAG_FOUR = "tag_four";
-    //public static final String EVENTS_COLUMN_DURATION_MIN = "duration_min";
     public static final String EVENTS_COLUMN_DETAIL = "detail";
     private HashMap hp;
 
@@ -105,22 +104,6 @@ public class EventsDBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-/*
-    public Event editData(int id, String name, int durationMin, String detail) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from events", null);
-        res.moveToFirst();
-
-        while(res.isAfterLast() == false) {
-            int row_id = res.getInt(res.getColumnIndex(EVENTS_COLUMN_ID));
-            if(row_id == id) {
-
-            }
-
-            res.moveToNext();
-        }
-    }
-*/
     public int numberOfRows() {
         SQLiteDatabase db = this.getReadableDatabase();
         int numRows = (int) DatabaseUtils.queryNumEntries(db, EVENTS_TABLE_NAME);
