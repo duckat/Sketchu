@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class EventDetailActivity extends AppCompatActivity {
     private EventsDBHelper events_db;
     private Button removeEventButton;
+    private Button editButton;
     private String nameString;
     private String startTimeString;
     private String endTimeString;
@@ -86,8 +87,8 @@ public class EventDetailActivity extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        editButton = (Button) findViewById(R.id.editButton);
+        editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 nameString = nameEditText.getText().toString();

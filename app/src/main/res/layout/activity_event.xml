@@ -13,7 +13,6 @@
     android:background="@drawable/listbackgroundtwo">
 
 
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -213,4 +212,5 @@
         android:layout_alignStart="@+id/tagButton3"
         android:id="@+id/tagButton4"
         android:background="@drawable/hashbutton" />
+
 </RelativeLayout>
