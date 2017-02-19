@@ -211,6 +211,6 @@
         android:layout_below="@+id/tagButton3"
         android:layout_alignLeft="@+id/tagButton3"
         android:layout_alignStart="@+id/tagButton3"
-        android:id="@+id/button4"
+        android:id="@+id/tagButton4"
         android:background="@drawable/hashbutton" />
 </RelativeLayout>
