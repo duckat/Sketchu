@@ -12,7 +12,7 @@ public class Event {
     private static int num = 0;
     private int id;
     private String name;
-    private int durationMin;
+    private long durationMin;
     private String startTime, endTime;
     private String detail;
     private String tagOne;
@@ -30,6 +30,7 @@ public class Event {
         this.tagTwo = tagTwo;
         this.tagThree = tagThree;
         this.tagFour = tagFour;
+        this.durationMin = 90/*TimeHelper.findTimeDiffInMin(this.startTime, this.endTime)*/;
     }
 
 
@@ -69,7 +70,7 @@ public class Event {
         return this.name;
     }
 
-    public int getDurationMin() {
+    public long getDurationMin() {
         return this.durationMin;
     }
 

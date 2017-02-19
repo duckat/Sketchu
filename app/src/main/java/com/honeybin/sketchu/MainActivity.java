@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private static MediaPlayer mp;
     public static boolean shouldPlay = false;
     public boolean startBackground = true;
-    private Sketchu mySketchu;
+    public static Sketchu mySketchu;
     private HashMap<String, Integer> beanBag;
     private ImageView sketchuImage;
     public static final int MAX_LEVEL = 10000;
@@ -234,6 +234,8 @@ public class MainActivity extends AppCompatActivity {
         onClickOk();
 
         Log.d("MainActivity", "onResume");
+        Toast.makeText(getApplicationContext(), "Hi! I'm sketchu " + mySketchu.getFitness(), Toast.LENGTH_SHORT).show();
+
         resumeBGM();
     }
 

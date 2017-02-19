@@ -20,4 +20,15 @@ public class TimeHelper {
         //this part should be getStandardMinutes() for actual production
         return duration.getStandardSeconds();
     }
+    public static long findTimeDiffInMin(String original, String current){
+        if(original == null || current == null) return 0;
+        DateTime orig = DateTime.parse(original);
+        DateTime now = DateTime.parse(current);
+        Duration duration = new Duration(orig, now);
+        //this part should be getStandardMinutes() for actual production
+        return duration.getStandardMinutes();
+    }
+    public static double minToHour(long min){
+        return min / 60.0;
+    }
 }

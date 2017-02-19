@@ -25,23 +25,29 @@ public class Sketchu {
 
     // skillful
     private double musicalAbility = 0.0;
+    private double artAbility = 0.0;
+    private double mastery = 0.0;
     private double dexterity = 0.0;
     private double fitness = 0.0;
 
     // social category
     private double appearance = 0.0;
-    private double sociability = 0.0;
+    private double reputation = 0.0;
     private double friendliness = 0.0;
     private double expressiveness = 0.0;
 
     // Inner peace
     private double confidence = 0.0;
     private double concentration = 0.0;
+    private double happiness = 0.0;
     private double sentimentality = 0.0;
 
-    // personality
-    private double shoppingImpulsiveness = 0.0;
+    // etc
+    private double shopping = 0.0;
+    private double luck = 0.0;
+    private  double fat = 0.0;
     private double otakuness = 0.0;
+    private double alcoholic = 0.0;
 
     public Sketchu(String name) {
         this.name = name;
@@ -111,7 +117,7 @@ public class Sketchu {
     }
 
     public void incSociability(double time) {
-        this.sociability = this.sociability + this.minToHour(time);
+        this.reputation = this.reputation + this.minToHour(time);
     }
 
     public void incFriendliness(double time) {
@@ -135,7 +141,7 @@ public class Sketchu {
     }
 
     public void incShoppingImpulsiveness(double time) {
-        this.shoppingImpulsiveness = this.shoppingImpulsiveness + this.minToHour(time);
+        this.shopping = this.shopping + this.minToHour(time);
     }
 
     public void incOtakuness(double time) {
@@ -254,14 +260,6 @@ public class Sketchu {
         this.fitness = fitness;
     }
 
-    public double getSociability() {
-        return sociability;
-    }
-
-    public void setSociability(double sociability) {
-        this.sociability = sociability;
-    }
-
     public double getFriendliness() {
         return friendliness;
     }
@@ -303,11 +301,11 @@ public class Sketchu {
     }
 
     public double getShoppingImpulsiveness() {
-        return shoppingImpulsiveness;
+        return shopping;
     }
 
     public void setShoppingImpulsiveness(double shoppingImpulsiveness) {
-        this.shoppingImpulsiveness = shoppingImpulsiveness;
+        this.shopping = shoppingImpulsiveness;
     }
 
     public double getOtakuness() {
@@ -316,5 +314,154 @@ public class Sketchu {
 
     public void setOtakuness(double otakuness) {
         this.otakuness = otakuness;
+    }
+
+    public void raiseStats(String tag, long durationInMin){
+        double duration = TimeHelper.minToHour(durationInMin);
+        hunger += duration * 10;
+        switch(tag){
+            //Intelligent
+            case "Study - Humanities": this.knowledge += (30 * duration);
+                this.creativity += (20 * duration);
+                this.comprehensibility += (40 * duration);
+                this.concentration += (10 * duration);
+                break;
+            case "Study - Engineering": this.knowledge += (30 * duration);
+                this.creativity += (30 * duration);
+                this.mastery += (30 * duration);
+                this.concentration += (10 * duration);
+                break;
+            case "Study - Math & Sciences": this.knowledge += (30 * duration);
+                this.precision += (50 * duration);
+                this.comprehensibility += (10 * duration);
+                this.concentration += (10 * duration);
+                break;
+            case "Read news": this.knowledge += (30 * duration);
+                this.comprehensibility += (20 * duration);
+                this.friendliness += (15 * duration);
+                this.expressiveness += (15 * duration);
+                this.concentration += (20 * duration);
+                break;
+            case "Read books": this.knowledge += (40 * duration);
+                this.creativity += (10 * duration);
+                this.comprehensibility += (20 * duration);
+                this.sentimentality += (30 * duration);
+                break;
+            case "Write": this.knowledge += (20 * duration);
+                this.creativity += (50 * duration);
+                this.expressiveness += (30 * duration);
+                break;
+            //Art & Music
+            case "Sing": this.creativity += (20 * duration);
+                this.comprehensibility += (10 * duration);
+                this.musicalAbility += (30 * duration);
+                this.reputation += (10 * duration);
+                this.expressiveness += (10 * duration);
+                this.sentimentality += (20 * duration);
+                break;
+            case "Dance": this.creativity += (20 * duration);
+                this.musicalAbility += (15 * duration);
+                this.artAbility += (10 * duration);
+                this.dexterity += (20 * duration);
+                this.fitness += (25 * duration);
+                this.reputation += (10 * duration);
+                break;
+            case "Play instrument": this.creativity += (20 * duration);
+                this.precision += (30 * duration);
+                this.musicalAbility += (30 * duration);
+                this.reputation += (10 * duration);
+                this.expressiveness += (10 * duration);
+                break;
+            case "Exhibit art": this.creativity += (25 * duration);
+                this.artAbility += (30 * duration);
+                this.mastery += (25 * duration);
+                this.reputation += (10 * duration);
+                this.sentimentality += (10 * duration);
+                break;
+            // Exercise
+            case "Sports": this.dexterity += (30 * duration);
+                this.fitness += (30 * duration);
+                this.friendliness += (10 * duration);
+                this.confidence += (10 * duration);
+                this.concentration += (10 * duration);
+                this.happiness += (10 * duration);
+                break;
+            case "Workout": this.fitness += (70 * duration);
+                this.confidence += (20 * duration);
+                this.concentration += (10 * duration);
+                break;
+            case "Jogging": this.fitness += (70 * duration);
+                this.confidence += (10 * duration);
+                this.concentration += (10 * duration);
+                this.happiness += (10 * duration);
+                break;
+            case "Yoga & Stretching": this.fitness += (70 * duration);
+                this.confidence += (20 * duration);
+                this.concentration += (10 * duration);
+                break;
+            //Hobby & Culture
+            case "Gaming": this.otakuness += (20 * duration);
+                this.precision += (20 * duration);
+                this.dexterity += (40 * duration);
+                this.expressiveness += (10 * duration);
+                this.concentration += (10 * duration);
+                break;
+            case "Watch TV": this.otakuness += (30 * duration);
+                this.comprehensibility += (20 * duration);
+                this.happiness += (10 * duration);
+                this.sentimentality += (40 * duration);
+                break;
+            case "Watch Movie": this.otakuness += (20 * duration);
+                this.comprehensibility += (30 * duration);
+                this.sentimentality += (50 * duration);
+                break;
+            case "Comics & Anime": this.otakuness += (50 * duration);
+                this.comprehensibility += (20 * duration);
+                this.creativity += (10 * duration);
+                this.sentimentality += (20 * duration);
+                break;
+            //work
+            case "Career work": this.reputation += (60 * duration);
+                this.precision += (20 * duration);
+                this.dexterity += (10 * duration);
+                this.concentration += (10 * duration);
+                break;
+            case "Raise kids": this.reputation += (20 * duration);
+                this.expressiveness += (10 * duration);
+                this.mastery += (20 * duration);
+                this.dexterity += (10 * duration);
+                this.friendliness += (20 * duration);
+                this.concentration += (10 * duration);
+                this.happiness += (10 * duration);
+                break;
+            case "Hold a meeting": this.reputation += (20 * duration);
+                this.knowledge += (10 * duration);
+                this.creativity += (10 * duration);
+                this.comprehensibility += (10 * duration);
+                this.expressiveness += (40 * duration);
+                this.concentration += (10 * duration);
+                break;
+            case "Presentation": this.reputation += (20 * duration);
+                this.creativity += (10 * duration);
+                this.dexterity += (10 * duration);
+                this.appearance += (10 * duration);
+                this.expressiveness += (50 * duration);
+                break;
+            case "Tutoring / Teaching": this.reputation += (20 * duration);
+                this.expressiveness += (20 * duration);
+                this.knowledge += (20 * duration);
+                this.comprehensibility += (20 * duration);
+                this.friendliness += (20 * duration);
+                break;
+            case "Work on project":
+                this.expressiveness += (10 * duration);
+                this.knowledge += (10 * duration);
+                this.creativity += (30 * duration);
+                this.mastery += (30 * duration);
+                this.confidence += (10 * duration);
+                this.concentration += (10 * duration);
+                break;
+            default: break;
+        }
     }
 }

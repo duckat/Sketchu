@@ -49,6 +49,9 @@ public class EventCursorAdapter extends CursorAdapter {
         tagButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Event e = events_db.getEvent(itemId);
+                Toast.makeText(ctx, e.getTagOne() + " / " + e.getTagTwo() + " / " + e.getTagThree() + " / " + e.getTagFour(), Toast.LENGTH_SHORT).show();
+                MainActivity.mySketchu.raiseStats(e.getTagOne(), e.getDurationMin());
                 events_db.deleteEvent(itemId);
                 cursor.requery();
                 notifyDataSetChanged();
